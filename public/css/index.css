@@ -48,6 +48,11 @@
 .social-dis:hover{
     background-color: #bebebe;
 }
+.apple, .google{
+    width: 10em;
+    display: block;
+    margin: auto;
+}
 .apple h3{ 
     letter-spacing: 0.08em;
 }
@@ -55,6 +60,7 @@
     font-size: 2em;
     width: 1em; 
 }
+
 .google-play{
     height: 2em;
     min-width: 1.9em;
