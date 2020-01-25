@@ -4,6 +4,8 @@ const express = require("express");
 const app = express(); // create express object ---> app
 const PORT = 3000; // port number for localhost
 
+//This allows express to make my static content avialable from the public
+app.use(express.static('public'))
 
 // imports the handlebar package
 const exphbs  = require('express-handlebars');
