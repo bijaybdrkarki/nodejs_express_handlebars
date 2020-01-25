@@ -19,5 +19,9 @@ app.listen(PORT, () => {
 
 //routes
 app.get('/', (req, res) => {
-    res.send('Hello World!');
+    res.render("index",{
+        title: "Home",
+        headingInfo : "Home Page",
+        randomContent: "BLAH BLAH BLHA"
+    })
 })
