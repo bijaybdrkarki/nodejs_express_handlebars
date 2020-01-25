@@ -1,0 +1,125 @@
+/* css for footer starts here */
+.footer h6{
+    font-size: 0.6em;
+    color: #e1e1e1;
+    letter-spacing: 0.1em;
+}
+.footer h3{
+    font-size: 1.2em;
+    color: #e1e1e1;
+}
+.foot-align h4{
+    padding-top: 2em; 
+    color: #ff7e73;
+}
+.footer{
+    background-color: #3e4153;
+    color: white;
+    text-align: center;
+}
+.footer > p{
+    padding-bottom: 2em;
+    font-size: 0.9em;
+}
+.foot-align a{
+    padding: 0.5em;
+    display: block;
+    text-decoration: none;
+    margin: 0.5em 0;
+    color: #e1e1e1;
+    margin: 0 auto;
+    width: fit-content;
+}
+.foot-align a:hover{
+    color: lightgreen;
+    text-decoration: underline;
+}
+.social-dis{
+    display: grid;
+    grid-template-columns: 0.5fr 2fr;
+    grid-gap: 0.5em;
+    background-color: #6f727f;
+    color: white;
+    margin: 0.5em auto;
+    padding:0.5em;
+    border-radius: 0.5em;
+    width: 10em;
+}
+.social-dis:hover{
+    background-color: #bebebe;
+}
+.apple h3{ 
+    letter-spacing: 0.08em;
+}
+.apple i{
+    font-size: 2em;
+    width: 1em; 
+}
+.google-play{
+    height: 2em;
+    min-width: 1.9em;
+    display: none;
+}
+.apple:hover .appleicon{
+    color: black;
+}
+.google:hover .googleIcon{
+    display: none;
+}
+.google:hover .google-play{
+    display: block;
+}
+.google h3{
+    letter-spacing: 0.01em;
+}
+.google i{
+    font-size: 1.6em;
+    width: 1.25em;
+}
+.social-dis div{
+    text-align: left;
+}
+.responsive-icon a{
+    text-decoration: none;    
+}
+.responsive-icon p{
+    text-align: center;
+    margin: 0.5em 0;
+    padding: 0.5em;
+    font-size: 0.9em;
+}
+.small{
+    font-size: small;
+}
+.icon{
+    font-size: 1.5em;
+    text-align: center;
+    margin: 0 auto;
+    color: white;   
+}
+.icon a{
+    color:white;
+}
+.icon i{
+    padding: 1rem 1rem;
+    background: #6f727f;
+    transition: background-color 1s;
+    border-radius: 1.5em;
+}
+.f:hover{
+  background-color: #3b5998;
+}
+.t:hover{
+    background-color: #1da1f2;
+}
+.i:hover{
+    background: #d6249f;
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+}
+.in:hover{
+    background-color: #0e76a8;
+}
+.y:hover{
+    background-color: #ff0000;  
+}
+/* css for footer ends here */
