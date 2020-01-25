@@ -123,3 +123,38 @@
     background-color: #ff0000;  
 }
 /* css for footer ends here */
+
+
+@media screen and (min-width: 650px) {
+    .foot-align{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    .apple-google{
+        display: grid;
+     grid-template-columns: auto 10em 10em auto;
+     grid-gap: 0.5em;       
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    body{
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+    .foot-align{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        margin-bottom: 1em;
+    }
+    .responsive-icon{
+        display:grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    .apple-google{
+        grid-template-columns: auto 10em 10em;
+    }
+    .icon{
+        margin-left: 1em;
+    }
+}
