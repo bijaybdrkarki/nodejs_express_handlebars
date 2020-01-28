@@ -1,3 +1,112 @@
+/* css for header section starts */
+.header {
+    background-color: #0a192b;
+    width: 100%;
+    /* position: fixed;
+    top: 0;
+    left: 0; */
+}
+.navbar {
+    /* padding: 0.5em 0.5em; */
+    display: grid;
+    grid-template-columns: 2em  auto  4.5em;
+    grid-template-areas:  "drop logo cart"
+                            "srch srch srch"
+                            "men men men";
+}
+.drop-menu{
+    grid-area: drop;
+    padding: 0.5em 0 0 0.5em;
+}
+.drop-menu > button{
+    border:none;
+    color: red;
+    background-color: #0a192b;
+}
+.logoPlace{
+    grid-area: logo;
+    text-align: center;
+}
+.logo{
+    height: auto;
+    max-height: 40px;
+    /* max-width: 50%; */
+    
+   
+}
+.cart{
+    grid-area: cart;
+    vertical-align: middle;
+}
+.cart li > button{
+    font-size: 2.2em;
+    color: red;
+    background-color: #0a192b;
+    border:none
+}
+.cart li{
+    display: inline;    
+}
+.searchbar{
+    grid-area: srch;
+    padding-top: 0.5em;
+    display: none;
+    color: white;    
+}
+.search{
+    /* background-color:#dddddd; */
+    border: black 0.05em solid;
+    border-radius: 0.5em;
+    color: #aaaaaa;
+    padding: 0.2em;
+    /* font-size: 0.9em; */
+}
+.mainmenu
+{
+    grid-area: men;
+    display: none;
+    text-align: left;
+    padding-left: 1em;
+}
+    .mainmenu a{
+      display: block;
+      color: white;
+      text-decoration: none;
+      line-height: 2.5;
+    }
+    .mainmenu a:hover {
+      color: #ffffff;
+      background-color: #dddddd;
+    }
+.submenu{
+    display: none;
+    position: absolute;
+    left: 10em;
+    top: 5em;
+    background-color:#FDF2E3;
+    z-index: 1;
+    width: 100%;
+}
+    .submenu a{
+        display: block;
+        color: #111;
+        text-decoration: none;
+        line-height: 2.5;
+    }
+    .mainmenu a:hover{
+        color: red;
+      background-color: #dddddd;
+    }
+.dropdown > a::after{
+    content: " >";
+    color: white;
+}
+.dropdown:hover .submenu{
+    display: block;
+}
+
+/* css for header ends */
+
 /* css for footer starts here */
 .footer h6{
     font-size: 0.6em;
@@ -135,7 +244,64 @@
 
 
 @media screen and (min-width: 650px) {
-    .foot-align{
+   /* media queries for header */
+   .navbar{
+    grid-template-columns: 9em auto 2em 4.2em;
+    grid-template-areas: "logo men srch cart";
+    }
+    .drop-menu{
+        display: none;
+    }
+    .logoPlace{
+        text-align: left;
+    }    
+    .mainmenu
+    {
+        padding-left: 0;
+        display: block;
+        /* display: flex; */
+        /* justify-content: space-around; */
+    }
+    .mainmenu > ul{
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    .submenu{
+        position: absolute;
+        left: auto;
+        top: 2em;
+        padding-left: 0.25em;
+        width: 50%;
+    }
+    .dropdown:hover .submenu{
+        display: flex;
+        justify-content: space-between;
+    }
+    .searchbar{
+        display: block;
+        padding-top: 0.5em;
+        position: relative;
+        
+    }
+    .searchbar button{
+        border:none;
+        background: none;
+        position: relative;
+    }
+    .search, .searchbar label{
+        display: none;  
+    }
+    .srchicon
+    {
+        display: block;
+        grid-area: srch;
+        color:white;
+        text-align: center;
+    }
+    /* media queries for header- end */
+    /* media queries for footer */
+   .foot-align{
         display: grid;
         grid-template-columns: 1fr 1fr;
     }
@@ -144,12 +310,20 @@
      grid-template-columns: auto 10em 10em auto;
      grid-gap: 0.5em;       
     }
+    /* media queries for footer -end */
 }
 
 @media screen and (min-width: 1200px) {
     body{
         max-width: 1400px;
         margin: 0 auto;
+    }
+    .navbar{
+        grid-template-columns: 9em auto 17em 4.2em;
+        grid-template-areas: "logo men srch cart";
+    }
+    .search, .searchbar label{
+        display: inline-block;  
     }
     .foot-align{
         display: grid;
