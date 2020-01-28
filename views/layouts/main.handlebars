@@ -12,8 +12,41 @@
     
 </head>
 <body>
-    <header>
-        <h1>{{headingInfo}}</h1>
+    <header class="header">
+        <div class="navbar">
+            <a href="/" class="logoPlace" id="logoPlace"><img src="img/airbnb.png" class="logo" alt=" Airbnb Logo"></a>
+            <div class="drop-menu">
+                <button type="button">
+                    <span class="material-icons" id="menu">menu</span>
+                </button>
+            </div>
+            <form class="searchbar" id="search"> 
+            <label>Search
+              <input type="search" name="find" id="find" class="search">
+            </label>
+            <button type="button"><span class="material-icons srchicon" id="srchicon">search</span></button>
+            </form>  
+            <!-- Navigation menu and toggle button (example) -->
+            <nav class="mainmenu" id="mainmenu" aria-label="Primary">
+                <ul>
+                    <li class="dropdown"><a href="#">Products</a>
+                        <ul class="submenu">
+                        <li><a href="#">Clothes</a></li>
+                        <li><a href="#">Shoes</a></li>
+                        <li><a href="#">Sports</a></li>
+                        <li><a href="#">Watches</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Locations</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Contact and FAQ'S</a></li>
+                </ul>
+            </nav>
+            <ul class="cart" id="cart">
+                <li><button><span class="material-icons">account_box</span></button></li>
+                <li><button><span class="material-icons">language</span></button></li>
+            </ul>
+        </div> 
     </header>
     <nav>
         <ul>
@@ -26,41 +59,41 @@
             {{{body}}}
     </main>
     <footer class="footer">
-      <div class="foot-align">
-          <div>
+        <div class="foot-align">
+            <div>
               <h4>AIR BnB</h4>
               <a href="#">News</a>
               <a href="#">Careers</a>
               <a href="#">Policies</a>
               <a href="#">Accessibility</a>
-          </div>
-          <div>
+            </div>
+            <div>
               <h4>DISCOVER</h4>
               <a href="#">Trust &#38; safety</a>
               <a href="#">Travel Credit</a>
               <a href="#">Business Travel</a>
               <a href="#">Airbnbmag</a>
-          </div>
-          <div>
-              <h4>HOSTING</h4>
-              <a href="#">Why Host</a>
-              <a href="#">Hospitality</a>
-              <a href="#">Responsible Hosting</a>
-              <a href="#">Community Centre
-                <i class="material-icons small">
-                  info
-                </i>
-              </a>
-          </div>
-          <div>
-              <h4>SUPPORT</h4>
-              <a href="#">Help desk 
-                <i class="material-icons small">
-                  contact_support call
-                </i>
-              </a>
-              <a href="#">Airbnb en français</a>
-          </div>
+            </div>
+            <div>
+                <h4>HOSTING</h4>
+                <a href="#">Why Host</a>
+                <a href="#">Hospitality</a>
+                <a href="#">Responsible Hosting</a>
+                <a href="#">Community Centre
+                    <i class="material-icons small">
+                    info
+                    </i>
+                </a>
+            </div>
+            <div>
+                <h4>SUPPORT</h4>
+                <a href="#">Help desk 
+                    <i class="material-icons small">
+                    contact_support call
+                    </i>
+                </a>
+                <a href="#">Airbnb en français</a>
+            </div>
         </div>
         <div class="responsive-icon">
             <div class="apple-google">
@@ -93,8 +126,8 @@
             <a href="#"><i class="fab fa-youtube y"></i></a>
             </div>
         </div>
-      <p class="copyright">&copy;2010-2019 Developed by Jhupro</p>
-      <p>All rights reserved. <br> Google, Google Play, YouTube and other marks are trademarks of Google Inc.</p>
+        <p class="copyright">&copy;2010-2019 Developed by Jhupro</p>
+        <p>All rights reserved. <br> Google, Google Play, YouTube and other marks are trademarks of Google Inc.</p>
     </footer>
 </body>
 </html>
