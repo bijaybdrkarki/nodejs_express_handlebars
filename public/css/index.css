@@ -270,9 +270,9 @@
     .submenu{
         position: absolute;
         left: auto;
-        top: 2em;
+        top: 2.4em;
         padding-left: 0.25em;
-        width: 50%;
+        width: 25%;
     }
     .dropdown:hover .submenu{
         display: flex;
