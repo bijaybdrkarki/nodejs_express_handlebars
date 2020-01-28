@@ -13,7 +13,7 @@
     color: #ff7e73;
 }
 .footer{
-    background-color: #3e4153;
+    background-color: #0a192b;
     color: white;
     text-align: center;
 }
@@ -127,6 +127,9 @@
 }
 .y:hover{
     background-color: #ff0000;  
+}
+.copyright{
+    margin-top: 1em;
 }
 /* css for footer ends here */
 
