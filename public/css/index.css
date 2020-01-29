@@ -106,7 +106,14 @@
 }
 
 /* css for header ends */
-
+.background{
+    background-image: url("../img/slide1.jpeg");
+    min-height: 30rem;
+    color:#ffffff;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
 /* css for footer starts here */
 .footer h6{
     font-size: 0.6em;
