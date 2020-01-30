@@ -24,6 +24,5 @@ app.get('/', (req, res) => {
     res.render("index",{
         title: "Home",
         headingInfo : "Home Page",
-        randomContent: "BLAH BLAH BLHA"
     })
 })
