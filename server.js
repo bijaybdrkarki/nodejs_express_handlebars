@@ -26,3 +26,6 @@ app.get('/', (req, res) => {
         headingInfo : "Home Page",
     })
 })
+app.get('/login', (req, res) => {
+    res.render("login")
+})
