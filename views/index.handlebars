@@ -1,9 +1,81 @@
-<div class="invisible"> 
+<div class="removeImg"> 
     <img src="../img/slide1.jpeg" alt="slide1" class="topImg">
 </div>
 <div class="background">
     <div class="booking-container">
-
-
+        <h1>Book a place to stay</h1>
+        <form class="booking">
+            <label>WHERE</label> 
+            <input type="text" id="Location" placeholder="location" class="input"> 
+            <div class="checkInOut">
+                <div>
+                    <label>CHECK-IN</label>
+                    <input type="date" class="input" id="check-in">
+                </div>
+                <div>
+                    <label>CHECK-OUT</label>
+                    <input type="date" class="input" id="check-out">
+                </div>
+            </div>
+            <label>Guests</label> 
+            <div class="guest" id="guest">
+                <button class="guest-btn" id="guest-btn">
+                    <h2>Guest</h2>
+                    <i class="material-icons">arrow_downward</i>
+                </button> 
+                <div class="invisible guestNum">
+                    <h2>Adults</h2>
+                    <div class="changeQuantity">
+                        <form>
+                            <input class="minusbutton" type="button" value="-">        
+                            <div class="quantity">0</div>
+                            <input class="plusbutton" type="button" value="+">       
+                        </form>
+                    </div>
+                    
+                    <h2>Children (Age: 2-12)</h2>
+                    <div class="changeQuantity">
+                        <form>
+                            <input class="minusbutton" type="button" value="-">        
+                            <div class="quantity">0</div>
+                            <input class="plusbutton" type="button" value="+">       
+                        </form>
+                    </div>
+                    <h2>Infants (Under 2)</h2>
+                    <div class="changeQuantity">
+                        <form>
+                            <input class="minusbutton" type="button" value="-">        
+                            <div class="quantity">0</div>
+                            <input class="plusbutton" type="button" value="+">       
+                        </form>
+                    </div>
+                    <div class="clear"><button class="clr-btn">Clear</button></div>
+                    <div class="save"><button class="save-btn">Save</button></div>
+                </div>
+            </div> 
+            
+            <button type="submit" id="search-button" class="srch-btn">Search </button>
+        </form>
+    </div>
+</div>
+<h1>Explore</h1>
+<div class="explore">
+    <div>
+       <a href="#"> 
+           <img src="../img/slide2.jpeg" alt="slide2">
+            <p>Stays</p>
+        </a>
+    </div>
+    <div>
+        <a href="#">
+            <img src="../img/slide3.jpeg" alt="slide3">
+            <p>Experiences</p>
+        </a>
+    </div>
+    <div>
+        <a href="#">
+            <img src="../img/slide5.jpeg" alt="slide5">
+            <p>Adventures</p>
+        </a>
     </div>
 </div>
