@@ -4,14 +4,14 @@
     width: 100%;
     padding: 0.4em 0;
     /* position: fixed;
-    top: 0;
+    top: 0; 
     left: 0; */
 }
 .navbar {
     /* padding: 0.5em 0.5em; */
     display: grid;
     grid-template-columns: 2em  auto  4.5em;
-    grid-template-areas:  "drop logo cart"
+    grid-template-areas:  "drop logo acon"
                             "srch srch srch"
                             "men men men";
 }
@@ -31,21 +31,19 @@
 .logo{
     height: auto;
     max-height: 40px;
-    /* max-width: 50%; */
-    
-   
+    /* max-width: 50%; */   
 }
-.cart{
-    grid-area: cart;
+.account{
+    grid-area: acon;
     vertical-align: middle;
 }
-.cart li > button{
+.account li > button{
     font-size: 2.2em;
     color: red;
     background-color: #0a192b;
     border:none
 }
-.cart li{
+.account li{
     display: inline;    
 }
 .searchbar{
@@ -54,6 +52,15 @@
     display: none;
     color: white;    
 }
+.searchbar label{
+    margin-left: 1em;
+}
+.searchbar button{
+    border: none;
+    background-color: #0a192b;
+    color: white;
+}
+
 .search{
     /* background-color:#dddddd; */
     border: black 0.05em solid;
@@ -82,8 +89,8 @@
 .submenu{
     display: none;
     position: absolute;
-    left: 10em;
-    top: 5em;
+    left: 6em;
+    top: 5.2em;
     background-color:#FDF2E3;
     z-index: 1;
     width: 100%;
@@ -115,11 +122,153 @@
 }
 
 .booking-container{
-    background-color: #ebebeb;
+    background-color: #efffff;
     /* max-width: 15em; */
     width: auto;
-    height: 20em;
+    height: 20em;  
+}
+
+.booking-container h1{
+    font-size: 2em;
+    font-weight: 900;
+    margin: 0em 0.5em;
+    padding: 0.25em 0;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.booking{
+    margin: 0em 1em 0.5em 1em;
+}
+.booking label{
+    font-size: 1.2em;
+    display: block;
+    margin: 0.25em 0;
+    /* width: 100%; */
+}
+.input{
+    padding: 0.2em;
+    width: 100%
+}
+.guest-btn{
+    background-color: #fffffe;
+    line-height: 0;
+    text-align: justify;
+    padding: 0.5em;
+    width: 100%;
+    color: grey;
+}
+.guest-btn::after{
+    content:'';
+    width: 100%; 
+    display: inline-block;
+}
+.guest-btn h2{
+    display: inline-block;
+    line-height: normal;
+}
+.guest-btn i{
+    vertical-align: bottom;
+    font-size: 1em;
+}
+.checkInOut{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.downArrow{
+    font-size: 0.8em;
+    text-align: end;
+}
+.guest{
+    position: relative;
     
+}
+.guestNum{
+    background-color: #fffffe;
+    padding: 0 1em;
+    width: 100%;
+    
+    position: absolute;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: auto auto;
+}
+.guestNum h2{
+    padding: 1em 0;
+}
+.changeQuantity {
+    padding: 0.3em;
+    margin-top: 0.25em;
+    margin-left: auto; 
+}
+.minusbutton, .quantity, .plusbutton{
+    display: inline-block;
+    padding: 0 0.35em;
+    font-size: 1.2em;
+}
+.minusbutton, .plusbutton{
+    border-radius: 50%;
+    background-color: #ffffff;
+}
+.minusbutton{
+    border: 0.09em solid lightblue;
+}
+.plusbutton{
+    border: 0.09em solid rgb(0, 195, 255);
+}
+.clear, .save{
+    padding-bottom: 0.35em;
+}
+.clear{
+    margin-left: 2em;
+}
+.save{
+    margin-right: 1.5em;
+    margin-left: auto;
+}
+.clr-btn, .save-btn{
+    font-size: 1.2em;
+    width: fit-content;
+    border: none;
+    background-color: white;
+    color: lightskyblue;
+}
+.clr-btn:hover, .save-btn:hover{
+    text-decoration: underline;
+}
+.srch-btn{
+    margin: 1em 0em;
+    padding: 0.5em;
+    width: 100%;
+}
+h1{
+    font-size: 2em;
+    padding: 0.25em 0.5em 0 0.5em;
+}
+.explore div{
+    border: 0.1em solid grey;
+    margin: 1em 0;
+    border-radius: 1em;
+}
+.explore img{
+    border-radius: 1em 1em 0 0;
+    padding: 0.1em;
+}
+.explore img:hover{
+    opacity: 0.8;
+}
+.explore p:hover{
+    text-decoration: underline;
+    color: red;
+}
+.explore p{
+    width: fit-content;
+    margin : 0 auto;
+    font-size: 1.2em;
+    padding: 0.25em;
+    color: navy;
+}
+.explore a{
+    text-decoration: none;
 }
 
 
@@ -258,13 +407,19 @@
     margin-top: 1em;
 }
 /* css for footer ends here */
-
+.visible{
+    display: block;
+    /* transition-delay: 2s; */
+}
+.invisible{
+    display: none;   
+}
 
 @media screen and (min-width: 650px) {
    /* media queries for header */
    .navbar{
     grid-template-columns: 9em auto 2em 4.2em;
-    grid-template-areas: "logo men srch cart";
+    grid-template-areas: "logo men srch acon";
     }
     .drop-menu{
         display: none;
@@ -287,9 +442,9 @@
     .submenu{
         position: absolute;
         left: auto;
-        top: 2.4em;
+        top: 2.75em;
         padding-left: 0.25em;
-        width: 25%;
+        width: 45%;
     }
     .dropdown:hover .submenu{
         display: flex;
@@ -298,16 +453,7 @@
     .searchbar{
         display: block;
         padding-top: 0.5em;
-        position: relative;
-        
-    }
-    .searchbar button{
-        border:none;
-        background: none;
-        position: relative;
-    }
-    .search, .searchbar label{
-        display: none;  
+        position: relative;  
     }
     .srchicon
     {
@@ -316,18 +462,30 @@
         color:white;
         text-align: center;
     }
+    .notVisible{
+        display: none;
+    }
+    .makeVisible{
+        /* display:inline-block; */
+        position: absolute;
+        top: 2em;
+        right: -3em;
+        z-index: 2;
+    }
+    
     /* media queries for header- end */
     /* media quries for body */
     .background{
         position: relative;
         background-image: url("../img/slide1.jpeg");
         min-height: 30rem;
-        color:#ffffff;
+        color:#000000;
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center center;
     }
-    .invisible{
+    .removeImg{
+        position: relative;
         display: none;
     }
     .booking-container{
@@ -337,6 +495,12 @@
         width: 28em;
         
     }
+    .explore{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: .25em;
+    }
+    
     /* media quries for body- end */
     /* media queries for footer */
    .foot-align{
@@ -358,7 +522,7 @@
     }
     .navbar{
         grid-template-columns: 9em auto 17em 4.2em;
-        grid-template-areas: "logo men srch cart";
+        grid-template-areas: "logo men srch acon";
     }
     .search, .searchbar label{
         display: inline-block;  
