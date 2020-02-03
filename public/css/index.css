@@ -37,7 +37,7 @@
     grid-area: acon;
     vertical-align: middle;
 }
-.account li > button{
+.account button{
     font-size: 2.2em;
     color: red;
     background-color: #0a192b;
@@ -179,15 +179,15 @@
     text-align: end;
 }
 .guest{
-    position: relative;
-    
+    position: relative;   
 }
 .guestNum{
     background-color: #fffffe;
     padding: 0 1em;
     width: 100%;
-    
     position: absolute;
+    top:2.56em;
+    left:0;
     z-index: 2;
     display: grid;
     grid-template-columns: auto auto;
@@ -270,7 +270,150 @@ h1{
 .explore a{
     text-decoration: none;
 }
+/* css for login or signup */
+.center{
+    margin: 5em 0; 
+    min-height: 30em;
+}
+.signupBy{
+    display: inline-block;
+    text-align: center;
+    padding: 0 1em;
+    width: 100%;
+}
+.fb{
+    background-color: #3b5998;
+    color: white;
+}
+.gog{
+    background-color: #fffffe;
+}
+.button{
+    display: block;
+    font-size: 1.3em;
+    margin: 0.5em auto;
+    padding: 0.5em;
+    max-width: 20em;
+    /* min-width: 12em; */
+    width: 100%;
+    border-radius: 0.25em;
+}
 
+.google-logo{
+    height: 0.9em;
+    width: 0.9em;
+}
+.orBetween{
+    max-width: 25em;
+    text-align: center; 
+    border-bottom: 1px solid #000; 
+    line-height: 0.1em;
+    margin: 2em auto; 
+}
+.orBetween span{
+    padding:0 10px;
+    background:#fff; 
+}
+.byEmail{
+    background-color: #7de0a6;
+}
+
+.emailIcon{
+    color: gray;
+    vertical-align: top;
+}
+.acnt-login{
+    font-size: 1.2em;
+    margin-top: -1em;   
+}
+.acnt-login a:hover{
+    text-decoration: underline;
+    text-decoration-color: lightslategray;
+}
+.signupBy a{
+    text-decoration: none;
+    color:rgb(202, 7, 7);
+}
+.fbcolor{
+    color: #3b5998;
+    font-size: 1.1em;
+}
+.gogRed{
+ color: #DB4437;
+}
+.gogBlue{
+    color: #4285f4;
+}
+.gogGreen{
+    color: #0f9d58;
+}
+.gogYellow{
+    color: #f4b400;
+   }
+.char-space span{
+   letter-spacing: -3.5px;
+   font-size: 1.1em;
+}
+.input-form{
+    max-width: 25em;
+    margin:auto;
+}
+.input-icons i { 
+    position: absolute; 
+} 
+.input-icons { 
+    width: 100%; 
+    margin-bottom: 0.625em; 
+} 
+.icon-signup { 
+    padding: 0.825em; 
+    color: green; 
+}   
+.input-field { 
+    width: 100%; 
+    padding: 0.625em;  
+    text-align: left;
+    padding-left: 3em;
+    margin-bottom: 0.75em;
+} 
+.birthday{
+    display: block;
+    text-align: left;
+    font-weight: 900;
+} 
+.info{
+    text-align: left;
+    font-size: 0.8em;
+}
+.date{
+    display: grid;
+    grid-template-columns: 2fr 1fr 2fr;
+    margin-top: 0.5em;
+}
+.month, .day, .year{
+    font-size: 1.1em;
+    padding:0.15em;
+}
+.marketing{
+    font-size: 0.8em;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: justify;
+    margin: 0.5em 0;
+    display: inline-block;
+}
+.checkbox{
+    text-align: left;
+}
+.checkbox input{
+    margin-right: 0.5em;
+}
+.signup-btn{
+    background-color: #0a192b;
+    color: white;
+}
+
+
+/* css for login signup end */
 
 /* css for body ends here */
 /* css for footer starts here */
@@ -409,10 +552,10 @@ h1{
 /* css for footer ends here */
 .visible{
     display: block;
-    /* transition-delay: 2s; */
+    
 }
 .invisible{
-    display: none;   
+    display: none;
 }
 
 @media screen and (min-width: 650px) {
@@ -490,7 +633,7 @@ h1{
     }
     .booking-container{
         position: absolute;
-        top:4em;
+        top:3em;
         left:4em;
         width: 28em;
         
