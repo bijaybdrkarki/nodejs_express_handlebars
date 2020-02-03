@@ -26,6 +26,9 @@ app.get('/', (req, res) => {
         headingInfo : "Home Page",
     })
 })
-app.get('/login', (req, res) => {
-    res.render("login")
+app.get('/signup-or-login', (req, res) => {
+    res.render("signupLogin")
+})
+app.get('/signup', (req, res) => {
+    res.render("signup")
 })
