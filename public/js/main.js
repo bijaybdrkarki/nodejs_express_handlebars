@@ -39,34 +39,43 @@ function guestNumber()
     }
 } 
 function getmonthlist(){
-    document.getElementById("month").innerHTML = `<option value="none" disabled selected> -- Month -- </option>`;
+    let options  = `<option value="none" disabled selected> -- Month -- </option>`;
     for(let i=1; i<=12; i++)
     {
-    document.getElementById("month").innerHTML += `<option value="${i}">${i}</option>`;
+      options+= `<option value="${i}">${i}</option>`;
     }
+    document.getElementById("month").innerHTML = options;
 }
 function getdaylist(){
-    document.getElementById("day").innerHTML = `<option value="none" disabled selected> -- Day -- </option>`;
+    let options = `<option value="none" disabled selected> -- Day -- </option>`;
     for(let i=1; i<=31; i++)
     {
-    document.getElementById("day").innerHTML += `<option value="${i}">${i}</option>`;
+        options += `<option value="${i}">${i}</option>`;
     }
+    document.getElementById("day").innerHTML = options;
 }
 function getyearlist(){
-    document.getElementById("year").innerHTML = `<option value="none" disabled selected> -- Year -- </option>`;
+    let options = `<option value="none" disabled selected> -- Year -- </option>`;
     for(let i=1960; i<=2020; i++)
     {
-    document.getElementById("year").innerHTML += `<option value="${i}">${i}</option>`;
+    options += `<option value="${i}">${i}</option>`;
     }
+    document.getElementById("year").innerHTML = options;
 }
-// let guestButton = document.getElementById("guest-btn");
-// guestButton.addEventListener("click", guestNumber);
-// let monthbutton = document.getElementById("month");
-// monthbutton.addEventListener("click", getmonthlist);
-// let daybutton = document.getElementById("day");
-// daybutton.addEventListener("click", getdaylist);
-// let yearbutton = document.getElementById("year");
-// yearbutton.addEventListener("click", getyearlist);
+
+if(document.location.pathname == "/signup"){
+    let monthbutton = document.getElementById("month");
+    monthbutton.addEventListener("click", getmonthlist);
+    let daybutton = document.getElementById("day");
+    daybutton.addEventListener("click", getdaylist);
+    let yearbutton = document.getElementById("year");
+    yearbutton.addEventListener("click", getyearlist);
+}
+if(document.location.pathname  == "/"){
+    let guestButton = document.getElementById("guest-btn");
+    guestButton.addEventListener("click", guestNumber);
+}
+
 
 window.addEventListener("load", ()=> { /* things to be done when page is loaded */
     let dropMenu = document.getElementById("menu");
