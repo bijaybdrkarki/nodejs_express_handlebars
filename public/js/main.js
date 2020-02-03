@@ -63,21 +63,22 @@ function getyearlist(){
     document.getElementById("year").innerHTML = options;
 }
 
-if(document.location.pathname == "/signup"){
-    let monthbutton = document.getElementById("month");
-    monthbutton.addEventListener("click", getmonthlist);
-    let daybutton = document.getElementById("day");
-    daybutton.addEventListener("click", getdaylist);
-    let yearbutton = document.getElementById("year");
-    yearbutton.addEventListener("click", getyearlist);
-}
-if(document.location.pathname  == "/"){
-    let guestButton = document.getElementById("guest-btn");
-    guestButton.addEventListener("click", guestNumber);
-}
 
 
 window.addEventListener("load", ()=> { /* things to be done when page is loaded */
+
+
+    if(document.location.pathname == "/signup"){
+        getmonthlist()
+        getdaylist()
+        getyearlist()
+    }
+    if(document.location.pathname  == "/"){
+        let guestButton = document.getElementById("guest-btn");
+        guestButton.addEventListener("click", guestNumber);
+    }
+    
+
     let dropMenu = document.getElementById("menu");
     dropMenu.addEventListener("click", menuVisible);
     let searchMenu = document.getElementById("srchicon");
