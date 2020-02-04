@@ -189,8 +189,37 @@
     top:2.56em;
     left:0;
     z-index: 2;
+    /* opacity: 1;
+    pointer-events: auto; */
+   /* height:0; */
     display: grid;
     grid-template-columns: auto auto;
+    height: 0em;
+    transition: height 1s ease-in-out;
+    -moz-transition: height 1s ease-in-out;
+    -o-transition: height 1s ease-in-out;
+   -webkit-transition: height 1s ease-in-out;
+}
+.guestNum :first-child, .guestNum :nth-child(2)
+{
+    opacity:0;
+    transition: opacity 1.5s;
+    pointer-events: none;
+    
+}
+.guestNum :nth-child(3), .guestNum :nth-child(4)
+{
+    opacity:0;
+    transition: opacity 0.8s;
+    pointer-events: none;
+    
+}
+.guestNum :nth-child(5), .guestNum :nth-child(6)
+{
+    opacity:0;
+    transition: opacity 0.01s;
+    pointer-events: none;
+    
 }
 .guestNum h2{
     padding: 1em 0;
@@ -229,7 +258,7 @@
     font-size: 1.2em;
     width: fit-content;
     border: none;
-    background-color: white;
+   background-color: transparent;
     color: lightskyblue;
 }
 .clr-btn:hover, .save-btn:hover{
@@ -317,7 +346,9 @@ h1{
 .byEmail{
     background-color: #7de0a6;
 }
-
+.button.byEmail{
+    color:rgb(202, 7, 7);
+}
 .emailIcon{
     color: gray;
     vertical-align: top;
@@ -403,6 +434,20 @@ h1{
 }
 .checkbox{
     text-align: left;
+    display: flex;
+    justify-content: space-between;
+}
+.showpass{
+    display: inline-block;
+    color: rgb(35, 149, 219); 
+    margin-top:0.35em;  
+}
+.forgotpass{
+    color: rgb(35, 149, 219); 
+    text-align: center;
+}
+.showpass:hover, .forgotpass:hover{
+    text-decoration: underline;
 }
 .checkbox input{
     margin-right: 0.5em;
@@ -557,7 +602,37 @@ h1{
 .invisible{
     display: none;
 }
-
+.animate{
+    /* opacity: 0;
+    pointer-events: none; */
+    height: 11.099em;
+    transition: height 1s ease-in-out;
+    -moz-transition: height 1s ease-in-out;
+    -o-transition: height 1s ease-in-out;
+   -webkit-transition: height 1s ease-in-out;
+  
+}
+.animate :first-child, .animate :nth-child(2)
+{
+    opacity:1;
+    transition: opacity 1s;
+    pointer-events: auto;
+    
+}
+.animate :nth-child(3), .animate :nth-child(4)
+{
+    opacity:1;
+    transition: opacity 2.5s;
+    pointer-events: auto;
+    
+}
+.animate :nth-child(5), .animate :nth-child(6)
+{
+    opacity:1;
+    transition: opacity 4.5s;
+    pointer-events: auto;
+    
+}
 @media screen and (min-width: 650px) {
    /* media queries for header */
    .navbar{
