@@ -28,7 +28,7 @@ function guestNumber()
 {
     event.preventDefault();
     // console.log("test");
-    document.querySelector(".guestNum").classList.toggle("invisible");
+    document.querySelector(".guestNum").classList.toggle("animate");
     let html= document.getElementById("guest-btn").children[1].innerHTML;
     if( html == 'arrow_downward')
     {
@@ -39,10 +39,11 @@ function guestNumber()
     }
 } 
 function getmonthlist(){
+    let months = ['Jan', 'Feb', 'Mar', 'Apr','May', 'Jun','Jul','Aug', 'Sep','Oct','Nov', 'Dec' ];
     let options  = `<option value="none" disabled selected> -- Month -- </option>`;
     for(let i=1; i<=12; i++)
     {
-      options+= `<option value="${i}">${i}</option>`;
+      options+= `<option value="${i}">${months[i-1]}</option>`;
     }
     document.getElementById("month").innerHTML = options;
 }
@@ -66,8 +67,6 @@ function getyearlist(){
 
 
 window.addEventListener("load", ()=> { /* things to be done when page is loaded */
-
-
     if(document.location.pathname == "/signup"){
         getmonthlist()
         getdaylist()
