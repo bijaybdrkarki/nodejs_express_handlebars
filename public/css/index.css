@@ -195,10 +195,11 @@
     display: grid;
     grid-template-columns: auto auto;
     height: 0em;
-    transition: height 1s ease-in-out;
-    -moz-transition: height 1s ease-in-out;
-    -o-transition: height 1s ease-in-out;
-   -webkit-transition: height 1s ease-in-out;
+    --speed: 0.2s;
+    transition: height var(--speed) ease-in-out;
+    -moz-transition: height var(--speed) ease-in-out;
+    -o-transition: height var(--speed) ease-in-out;
+   -webkit-transition: height var(--speed) ease-in-out;
 }
 .guestNum :first-child, .guestNum :nth-child(2)
 {
@@ -671,10 +672,11 @@ h1{
     /* opacity: 0;
     pointer-events: none; */
     height: 11.099em;
-    transition: height 1s ease-in-out;
-    -moz-transition: height 1s ease-in-out;
-    -o-transition: height 1s ease-in-out;
-   -webkit-transition: height 1s ease-in-out;
+   --speed: 0.5s;
+    transition: height var(--speed) ease-in-out;
+    -moz-transition: height var(--speed)ease-in-out;
+    -o-transition: height var(--speed) ease-in-out;
+   -webkit-transition: height var(--speed) ease-in-out;
   
 }
 .animate :first-child, .animate :nth-child(2)
