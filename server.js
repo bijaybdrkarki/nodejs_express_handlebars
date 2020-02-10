@@ -74,7 +74,7 @@ app.post("/signup", (req,res)=>{
     {
     errors.year="Sorry, you must select year";
     }
-    if( req.body.password.slice(1).match(/[0-9a-zA-Z]+$/) )
+    if( req.body.password.length < 8 || req.body.password[0] != req.body.password[0].toUpperCase() || ! (/^[0-9a-zA-Z]+$/).test(req.body.password.slice(1)) )
     {
         errors.passType = "password must have at least 8 characters with first letter capital & all other alphanumeric"
     }
@@ -92,7 +92,7 @@ app.post("/signup", (req,res)=>{
         })
     }
     
-    // req.body.password.length > 0 && req.body.password.length < 8 || req.body.password[0] != req.body.password[0].toUpperCase() ||
+    
 })
 app.get('/login', (req, res) => {
     res.render("login")
