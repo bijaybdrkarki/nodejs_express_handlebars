@@ -396,6 +396,16 @@ h1{
     width: 100%; 
     margin-bottom: 0.625em; 
 } 
+.error{
+    text-align: left;
+    font-size: 0.5em;
+    color: red;
+    margin-top:-1em;
+    margin-bottom: 0.5em;
+}
+.dateError{
+    display: inline;
+}
 .icon-signup { 
     padding: 0.825em; 
     color: green; 
