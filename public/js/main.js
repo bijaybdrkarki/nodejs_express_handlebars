@@ -187,7 +187,7 @@ function guestNumber() /* get guest number dropdown on home page  */
 function getmonthlist() /* month list on signup page */
 {
     let months = ['Jan', 'Feb', 'Mar', 'Apr','May', 'Jun','Jul','Aug', 'Sep','Oct','Nov', 'Dec' ];
-    let options  = `<option value="none" disabled selected> -- Month -- </option>`;
+    let options  = `<option value="none"  disabled selected> -- Month -- </option>`;
     for(let i=1; i<=12; i++)
     {
       options+= `<option value="${i}">${months[i-1]}</option>`;
@@ -196,16 +196,16 @@ function getmonthlist() /* month list on signup page */
 }
 function getdaylist() /* day list on signup page */
 {
-    let options = `<option value="none" disabled selected> -- Day -- </option>`;
+    let options = `<option value="none" name="none" disabled selected> -- Day -- </option>`;
     for(let i=1; i<=31; i++)
     {
-        options += `<option value="${i}">${i}</option>`;
+        options += `<option  value="${i}">${i}</option>`;
     }
     document.getElementById("day").innerHTML = options;
 }
 function getyearlist() /* year list on signup page */
 {
-    let options = `<option value="none" disabled selected> -- Year -- </option>`;
+    let options = `<option value="none" name="none" disabled selected> -- Year -- </option>`;
     for(let i=1960; i<=2020; i++)
     {
     options += `<option value="${i}">${i}</option>`;
