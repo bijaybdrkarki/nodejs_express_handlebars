@@ -14,8 +14,6 @@ app.use(express.static('public'))
 
 app.use(bodyParser.urlencoded({ extended: false }))
 
-
-
 //register handlebars view engine
 app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
