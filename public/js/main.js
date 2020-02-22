@@ -187,32 +187,89 @@ function guestNumber() /* get guest number dropdown on home page  */
 function getmonthlist() /* month list on signup page */
 {
     let months = ['Jan', 'Feb', 'Mar', 'Apr','May', 'Jun','Jul','Aug', 'Sep','Oct','Nov', 'Dec' ];
-    let options  = `<option value="none"  disabled selected> -- Month -- </option>`;
-    for(let i=1; i<=12; i++)
+    if (document.getElementById("day").innerHTML.length <= 25 )
     {
-      options+= `<option value="${i}">${months[i-1]}</option>`;
+        let options  = `<option value="none"  disabled selected> -- Month -- </option>`;
+        for(let i=1; i<=12; i++)
+        {
+        options+= `<option value="${i}">${months[i-1]}</option>`;
+        }
+        document.getElementById("month").innerHTML = options;
     }
-    document.getElementById("month").innerHTML = options;
+    else
+    {
+        let options  = `<option value="none"  disabled> -- Month -- </option>`;
+        for(let i=1; i<=12; i++)
+        {
+            if (i != document.getElementById("month").value)
+            {
+            options += `<option  value="${i}">  ${months[i-1]} </option>`;
+            }
+            else
+            {
+                options += `<option  value="${i}" selected>  ${months[i-1]}  </option>` 
+            }
+        }
+        document.getElementById("month").innerHTML = options;
+    }
+    
 }
 function getdaylist() /* day list on signup page */
 {
-    let options = `<option value="none" name="none" disabled selected> -- Day -- </option>`;
-    for(let i=1; i<=31; i++)
+    if (document.getElementById("day").innerHTML.length <= 25 )
     {
-        options += `<option  value="${i}">${i}</option>`;
+        let options = `<option value="none" name="none" disabled selected> -- Day -- </option>`;
+        for(let i=1; i<=31; i++)
+        {
+            options += `<option  value="${i}">  ${i} </option>`;
+        }
+        document.getElementById("day").innerHTML = options;
     }
-    document.getElementById("day").innerHTML = options;
+    else
+    {
+        let options= `<option value="none" name="none" disabled> -- Day -- </option>`;
+        for(let i=1; i<=31; i++)
+        {
+            if (i != document.getElementById("day").value)
+            {
+            options += `<option  value="${i}"> ${i} </option>`;
+            }
+            else
+            {
+                options += `<option  value="${i}" selected> ${i}  </option>` 
+            }
+        }
+        document.getElementById("day").innerHTML = options;  
+    }
 }
 function getyearlist() /* year list on signup page */
 {
-    let options = `<option value="none" name="none" disabled selected> -- Year -- </option>`;
-    for(let i=1960; i<=2020; i++)
+    if (document.getElementById("year").innerHTML.length <= 25 )
     {
-    options += `<option value="${i}">${i}</option>`;
+        let options = `<option value="none" name="none" disabled selected> -- Year -- </option>`;
+        for(let i=1960; i<=2020; i++)
+        {
+        options += `<option value="${i}">${i}</option>`;
+        }
+        document.getElementById("year").innerHTML = options;
     }
-    document.getElementById("year").innerHTML = options;
+    else
+    {
+        let options= `<option value="none" name="none" disabled> -- Year -- </option>`;
+        for(let i=1960; i<=2020; i++)
+        {
+            if (i != document.getElementById("year").value)
+            {
+            options += `<option  value="${i}"> ${i} </option>`;
+            }
+            else
+            {
+                options += `<option  value="${i}" selected> ${i}  </option>` 
+            }
+        }
+        document.getElementById("year").innerHTML = options;  
+    }
 }
-
 
 
 window.addEventListener("load", ()=> { /* things to be done when page is loaded */
