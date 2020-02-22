@@ -1,5 +1,5 @@
 const express = require("express"); 
-const allrooms =require('../models/rooms');
+const allrooms =require('../models/allrooms');
 const router = express.Router();
 
 router.get('/', (req, res) => {
