@@ -12,17 +12,17 @@
         <form class="input-form" method="POST" action="/signup">
             <div class="input-icons">      
                 <i class="fa fa-envelope icon-signup"> </i> 
-                <input class="input-field" type="email" placeholder="Email address" name="email">
+                <input class="input-field" type="email" placeholder="Email address" name="email" value="{{data.email}}">
                 {{#if messages.email}}
                     <div class="error"> {{messages.email}} </div>
                 {{/if}}       
                 <i class="far fa-user icon-signup"> </i> 
-                <input class="input-field" type="text" placeholder="First Name" name="firstName">
+                <input class="input-field" type="text" placeholder="First Name" name="firstName" value="{{data.fname}}">
                 {{#if messages.firstName}}
                    <div class="error"> {{messages.firstName}} </div>
                 {{/if}}
                 <i class="far fa-user icon-signup"> </i> 
-                <input class="input-field" type="text" placeholder="Last Name" name="lastName">
+                <input class="input-field" type="text" placeholder="Last Name" name="lastName" value="{{data.lname}}">
                 {{#if messages.lastName}}
                    <div class="error"> {{messages.lastName}} </div>
                 {{/if}}
@@ -59,17 +59,23 @@
             <div class="date">
                 <fieldset class="month">
                     <select  name="month" id="month">
-                        {{!-- <option value="none" disabled selected>- Month -</option> --}}
+                        {{#if data.month}}
+                        <option value="{{data.month}}" selected>{{data.month}}</option>
+                        {{/if}}
                     </select>
                 </fieldset>
                 <fieldset class="day">
                     <select name="day" id="day"> 
-                        {{!-- <option value="none" disabled selected>- Day -</option>    --}}
+                        {{#if data.day}}
+                        <option value="{{data.day}}" selected>{{data.day}}</option>
+                        {{/if}}
                     </select>
                 </fieldset>
                 <fieldset class="year">
                     <select name="year" id="year">
-                        {{!-- <option value="none" disabled selected>- Year -</option> --}}
+                        {{#if data.year}}
+                        <option value="{{data.year}}" selected>{{data.year}}</option>
+                        {{/if}}
                     </select>
                 </fieldset>
             </div>
