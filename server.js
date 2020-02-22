@@ -11,6 +11,8 @@ const PORT = 3000; // port number for localhost
 //import routes from routes folder
 const index = require('./routes/index');
 const signup = require('./routes/signup');
+const allrooms =require('./models/rooms');
+
 const fakedb=[];
 //This allows express to make my static content avialable from the public
 app.use(express.static('public'))
@@ -38,5 +40,7 @@ app.get('/login', (req, res) => {
     res.render("login")
 })
 app.get('/rooms', (req, res) => {
-    res.render("rooms")
+    res.render("rooms",{
+        rooms : allrooms
+    })
 })
