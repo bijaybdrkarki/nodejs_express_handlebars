@@ -1,20 +1,23 @@
 <div class="rooms" id="rooms">
-    {{!-- <article class="room">
-        <header>
-            <img src="/img/room1.jpg" alt="room1">
-        </header>
-        <div class="name-price">
-              <h3>Beach view</h3>
-              <data value="139"><ins>$139.00/night</ins></data>
-        </div>
-        <div class="see-more">
-              <p>Here is a shot of this product that might entice a user to click and add it to their cart.</p>
-              <a href="#" class="extra-info">See more</a><br>
-              <span class="invisible">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil nobis dolorem ea aliquid, aspernatur non commodi deserunt dolorum atque a incidunt, pariatur ipsa, accusantium temporibus. Corporis asperiores tenetur deserunt nisi?</span>
-        </div>
-        <dl class="rating-fav">
-          <div><dt><span class="material-icons">star</span> <h2>4.21</h2><p>(312)</p></dt></div>
-          <div class="align-right"><button type="button" class="fav but"><span class="material-icons fav-color">favorite_border</span></button></div>
-        </dl>
-    </article> --}}
+    {{#each rooms}}
+        <article class="room">
+            <header>
+                <img src="{{this.image}}" alt="room img">
+            </header>
+            <div class="name-price">
+                <h3>Beach view</h3>
+                <data value="{{this.price}}"><ins>${{this.price}}/night</ins></data>
+            </div>
+            <div class="see-more">
+                <p>{{this.description}}</p>
+                <a href="#" class="extra-info">See more</a><br>
+                <span class="invisible">{{this.extra}}</span>
+            </div>
+            <dl class="rating-fav">
+            <div><dt><span class="material-icons">star</span> <h2>{{this.rating}}</h2><p>({{this.ratingPeople}})</p></dt></div>
+            <div class="align-right"><button type="button" class="fav but"><span class="material-icons fav-color">favorite_border</span></button></div>
+            </dl>
+        </article>
+
+    {{/each}}
 </div>
