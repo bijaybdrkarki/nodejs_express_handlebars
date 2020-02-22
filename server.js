@@ -39,6 +39,14 @@ app.get('/signup', (req, res) => {
 app.post("/signup", (req,res)=>{
     // console.log("test");
     let errormessg=[];
+    let formdata={
+        email : req.body.email,
+        fname : req.body.firstName,
+        lname : req.body.lastName,
+        day : req.body.day,
+        month : req.body.month,
+        year : req.body.year
+    }; 
     const errors={};
     if(req.body.email=="")
     {
@@ -58,17 +66,17 @@ app.post("/signup", (req,res)=>{
     }
     if(req.body.confirmPassword=="")
     {
-    errors.confirmPassword="Sorry, you must enter matching password";
+    errors.confirmPassword = "Sorry, you must enter matching password";
     }
-    if(req.body.month== undefined)
+    if(req.body.month == undefined)
     {
     errors.month="Sorry, you must select month";
     }
-    if(req.body.day== undefined)
+    if(req.body.day == undefined)
     {
     errors.day="Sorry, you must select day";
     }
-    if(req.body.year== undefined)
+    if(req.body.year == undefined)
     {
     errors.year="Sorry, you must select year";
     }
@@ -81,12 +89,13 @@ app.post("/signup", (req,res)=>{
         errors.match= "password not matched";
     }
     errormessg.push(errors);
-    // console.log(errors);
+    
     if(errormessg.length > 0)
     {
     //    console.log("inside error.length");
         res.render("signup",{
-        messages : errors
+        messages : errors,
+        data : formdata
         })
     }
     
