@@ -10,8 +10,10 @@ const PORT = 3000; // port number for localhost
 
 //import routes from routes folder
 const index = require('./routes/index');
+const signup_login = require('./routes/signup-login')
 const signup = require('./routes/signup');
-const allrooms =require('./models/rooms');
+const login = require('./routes/login');
+const rooms = require('./routes/rooms');
 
 const fakedb=[];
 //This allows express to make my static content avialable from the public
@@ -28,19 +30,9 @@ app.listen(PORT, () => {
     console.log(`Web Server Started`); 
 })
 
-//routes
+// modular routes
 app.use('/', index);
 app.use('/signup', signup);
-
-app.get('/signup-or-login', (req, res) => {
-    res.render("signupLogin")
-})
-
-app.get('/login', (req, res) => {
-    res.render("login")
-})
-app.get('/rooms', (req, res) => {
-    res.render("rooms",{
-        rooms : allrooms
-    })
-})
+app.use('/login', login);
+app.use('/signup-or-login', signup_login);
+app.use('/rooms', rooms);
