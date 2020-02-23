@@ -25,6 +25,78 @@ function favbtnclick(event) /* check or uncheck fav button on click in all versi
    }
 }
 
+function minusbtnclick(event)
+{
+    event.preventDefault();
+    let value= parseInt(event.target.parentElement.children[1].innerHTML);
+    if (value > 0)
+    {
+        value--;
+    }
+    event.target.parentElement.children[1].innerHTML = value;
+    if (value == 0 && event.target.parentElement.children[0].classList.contains("plusbutton"))
+    {
+        event.target.parentElement.children[0].classList.remove("plusbutton");
+        event.target.parentElement.children[0].classList.add("minusbutton");
+    }
+    let total = totalguest();
+    if (total == 1)
+    {
+        document.getElementById("guest-btn").children[0].innerHTML = `${total} Guest`;
+    }
+    else
+    {
+        document.getElementById("guest-btn").children[0].innerHTML = `${total} Guests`;
+    }
+    if (total < 1) 
+    {
+        if (document.querySelector(".clr-btn").classList.contains("btnSelect"))
+        {
+        document.querySelector(".clr-btn").classList.remove("btnSelect");
+        document.querySelector(".clr-btn").classList.add("btnUnselect");
+        document.querySelector(".save-btn").classList.remove("btnSelect");
+        document.querySelector(".save-btn").classList.add("btnUnselect");
+        }
+        document.getElementById("guest-btn").children[0].innerHTML = `Guest`;
+    }
+}
+
+function plusbtnclick(event)
+{
+    event.preventDefault();
+    let value = parseInt(event.target.parentElement.children[1].innerHTML);
+    value++;
+    event.target.parentElement.children[1].innerHTML = value; 
+    event.target.parentElement.children[0].classList.remove("minusbutton");
+    event.target.parentElement.children[0].classList.add("plusbutton");
+    let total = totalguest();
+    if (total > 0 ) 
+    {
+        if (document.querySelector(".clr-btn").classList.contains("btnUnselect"))
+        {
+        document.querySelector(".clr-btn").classList.remove("btnUnselect");
+        document.querySelector(".clr-btn").classList.add("btnSelect");
+        document.querySelector(".save-btn").classList.remove("btnUnselect");
+        document.querySelector(".save-btn").classList.add("btnSelect");
+        }
+        if (total == 1)
+        {
+        document.getElementById("guest-btn").children[0].innerHTML = `${total} Guest`;
+        }
+        else
+        {
+        document.getElementById("guest-btn").children[0].innerHTML = `${total} Guests`;
+        }
+    }
+}
+function totalguest()
+{
+    var sum=0;
+    let total = document.querySelectorAll(".quantity");
+    total.forEach(item => sum+=(parseInt(item.innerHTML)));
+    return sum;
+}
+
 function menuVisible() /* show menu on click in mobile version */
 {
     document.getElementById("search").classList.toggle("visible");
@@ -158,11 +230,19 @@ window.addEventListener("load", ()=> { /* things to be done when page is loaded 
         getdaylist()
         getyearlist()
     }
-    if(document.location.pathname  == "/"){
+    if(document.location.pathname  == "/")
+    {
         let guestButton = document.getElementById("guest-btn");
         guestButton.addEventListener("click", guestNumber);
+
+        let minusButton = document.querySelectorAll(".minusbutton");
+        minusButton.forEach(item => item.addEventListener("click", minusbtnclick));
+
+        let plusButton = document.querySelectorAll(".plusbutton");
+        plusButton.forEach(item => item.addEventListener("click", plusbtnclick));
     }
-    if(document.location.pathname == "/rooms"){
+    if(document.location.pathname == "/rooms")
+    {
         let seeMore = document.querySelectorAll(".extra-info");
         let favBtn = document.querySelectorAll(".fav-color");
     
