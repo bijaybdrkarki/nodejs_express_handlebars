@@ -238,6 +238,7 @@
 .minusbutton, .plusbutton{
     border-radius: 50%;
     background-color: #ffffff;
+    color: rgb(0, 204, 255);
 }
 .minusbutton{
     border: 0.09em solid lightblue;
@@ -260,7 +261,15 @@
     width: fit-content;
     border: none;
    background-color: transparent;
+    
+}
+.btnUnselect
+{
     color: lightskyblue;
+}
+.btnSelect
+{
+    color: rgb(0, 162, 255);
 }
 .clr-btn:hover, .save-btn:hover{
     text-decoration: underline;
