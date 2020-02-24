@@ -795,10 +795,11 @@ h1{
         grid-gap: .25em;
     }
     
-    #rooms{
+    .rooms{
         display: grid;
         grid-template-columns: 1fr 1fr;   
    }
+
     /* media quries for body- end */
     /* media queries for footer */
    .foot-align{
@@ -825,7 +826,7 @@ h1{
     .search, .searchbar label{
         display: inline-block;  
     }
-    #rooms{
+    .rooms{
         grid-template-columns: 1fr 1fr 1fr;   
    }
     .foot-align{
