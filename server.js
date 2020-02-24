@@ -14,6 +14,7 @@ const signup_login = require('./routes/signup-login')
 const signup = require('./routes/signup');
 const login = require('./routes/login');
 const rooms = require('./routes/rooms');
+const adventures = require('./routes/adventures');
 
 const fakedb=[];
 //This allows express to make my static content avialable from the public
@@ -36,3 +37,4 @@ app.use('/signup', signup);
 app.use('/login', login);
 app.use('/signup-or-login', signup_login);
 app.use('/rooms', rooms);
+app.use('/adventures', adventures);
