@@ -6,7 +6,7 @@ const exphbs  = require('express-handlebars');
 
 const bodyParser = require('body-parser');
 const app = express(); // create express object ---> app
-const PORT = 3000; // port number for localhost
+const PORT = process.env.PORT || 3000; // heroku env port number || localhost port
 
 //import routes from routes folder
 const index = require('./routes/index');
