@@ -1,0 +1,14 @@
+<p>Welcome</p>
+<div class="rooms">
+{{#each advrooms}}
+   <article class="room">
+        <header>
+            <img src="{{this.image}}" alt="room img">
+        </header>
+        <div class="name-price">
+            <h3>{{this.title}}</h3>
+            <data value="{{this.price}}"><ins>${{this.price}}/night</ins></data>
+        </div>
+    </article>
+{{/each}}
+</div>
