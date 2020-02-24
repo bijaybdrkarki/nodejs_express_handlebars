@@ -71,7 +71,7 @@ router.post("/", (req,res)=>{
     else
     {
         allusers.push(formdata);
-        fs.writeFileSync("database.txt", JSON.stringify(allusers, null, 2));
+        fs.writeFileSync("./models/database.txt", JSON.stringify(allusers, null, 2));
         res.render("login")
     }
     
