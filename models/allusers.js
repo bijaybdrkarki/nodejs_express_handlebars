@@ -1,7 +1,7 @@
 const fs = require("fs");
 const allusers = [];
 
-let data = fs.readFileSync("./database.txt", "utf8");
+let data = fs.readFileSync("models/database.txt", "utf8");
 let jsondata = JSON.parse(data);
 
 if (data.length > 1)
