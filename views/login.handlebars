@@ -3,18 +3,31 @@
         <button type="button" class="button fb"> <i class="fab fa-facebook-f"></i> Login with Facebook</button>
         <button type="button" class="button gog"> <img src="/img/google logo.png" alt="google logo" class="google-logo"> Login with Google</button>
         <p class="orBetween"><span>or</span></p>
-        <form class="input-form">
+        <form class="input-form" method="POST" action="/login">
             <div class="input-icons">  
+                {{#if messages.match}}
+                    {{#unless messages.email}}
+                        {{#unless messages.password}}
+                            <div class="error"> {{messages.match}} </div>
+                        {{/unless}}
+                    {{/unless}}
+                {{/if}}
                 <i class="fa fa-envelope icon-signup"> </i> 
-                <input class="input-field" type="email" placeholder="Email address">
+                <input class="input-field" type="email" placeholder="Email address" name="email" value="{{data.email}}">
+                {{#if messages.email}}
+                    <div class="error"> {{messages.email}} </div>
+                {{/if}}  
                 <i class="fas fa-unlock-alt icon-signup"></i>
-                <input class="input-field" type="password" placeholder="Password">
+                <input class="input-field" type="password" placeholder="Password" name="password">
+                {{#if messages.password}}
+                   <div class="error"> {{messages.password}} </div>
+                {{/if}}
             </div> 
             <div class="checkbox">
                 <div><input type="checkbox"><p class="marketing">Remember Password</p></div>
                 <a href="#"><p class="showpass">Show password</p></a>
             </div>
-            <button type="button" class="button signup-btn"> Log In</button>
+            <button type="submit" class="button signup-btn"> Log In</button>
             <a href="#"><p class="forgotpass">Forgot password</p></a>
         </form>
         <div class="orBetween"></div>
