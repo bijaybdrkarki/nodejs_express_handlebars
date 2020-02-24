@@ -1,16 +1,20 @@
 const express = require("express"); 
 const router = express.Router();
+const fs = require("fs");
+const allusers = require('../models/allusers');
+
 
 router.get('/', (req, res) => {
     res.render("signup")
 })
 router.post("/", (req,res)=>{
     // console.log("test");
-    let errormessg=[];
     let formdata={
         email : req.body.email,
         fname : req.body.firstName,
         lname : req.body.lastName,
+        password: req.body.password,
+        confirmPassword : req.body.confirmPassword,
         day : req.body.day,
         month : req.body.month,
         year : req.body.year
@@ -56,15 +60,19 @@ router.post("/", (req,res)=>{
     {
         errors.match= "password not matched";
     }
-    errormessg.push(errors);
-    
-    if(errormessg.length > 0)
+    console.log(Object.keys(errors).length) 
+    if (Object.keys(errors).length > 0)
     {
-    //    console.log("inside error.length");
         res.render("signup",{
         messages : errors,
         data : formdata
         })
+    }
+    else
+    {
+        allusers.push(formdata);
+        fs.writeFileSync("database.txt", JSON.stringify(allusers, null, 2));
+        res.render("login")
     }
     
     
