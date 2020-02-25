@@ -3,40 +3,11 @@
     "email": "test@gmail.com",
     "fname": "bijay",
     "lname": "karki",
-    "password": "Henary123",
-    "confirmPassword": "Henary123",
+    "password": "Anjoo123",
+    "confirmPassword": "Anjoo123",
+    "phone": "437-228-1850",
     "day": "1",
-    "month": "2",
-    "year": "1962"
-  },
-  {
-    "email": "test@gmail.com",
-    "fname": "bijay",
-    "lname": "karki",
-    "password": "Ramkarki2",
-    "confirmPassword": "Ramkarki2",
-    "day": "1",
-    "month": "4",
-    "year": "1965"
-  },
-  {
-    "email": "test@gmail.com",
-    "fname": "bijay",
-    "lname": "karki",
-    "password": "Pickford123",
-    "confirmPassword": "Pickford123",
-    "day": "14",
-    "month": "4",
-    "year": "1965"
-  },
-  {
-    "email": "test@gmail.com",
-    "fname": "bijay",
-    "lname": "karki",
-    "password": "Siwan123",
-    "confirmPassword": "Siwan123",
-    "day": "4",
-    "month": "11",
-    "year": "1968"
+    "month": "1",
+    "year": "1960"
   }
 ]
