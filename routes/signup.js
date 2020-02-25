@@ -16,10 +16,12 @@ router.post("/", (req,res)=>{
         lname : req.body.lastName,
         password: req.body.password,
         confirmPassword : req.body.confirmPassword,
+        phone : req.body.phone,
         day : req.body.day,
         month : req.body.month,
         year : req.body.year
     }; 
+    const phonenum = formdata.phone.split('-');
     const errors={};
     if(req.body.email=="")
     {
@@ -32,6 +34,10 @@ router.post("/", (req,res)=>{
     if(req.body.lastName=="")
     {
     errors.lastName="Sorry, you must enter last name";
+    }
+    if(req.body.phone=="")
+    {
+    errors.phone="Sorry, you must enter valid phone number";
     }
     if(req.body.password=="")
     {
@@ -61,7 +67,6 @@ router.post("/", (req,res)=>{
     {
         errors.match= "password not matched";
     }
-    console.log(Object.keys(errors).length) 
     if (Object.keys(errors).length > 0)
     {
         res.render("signup",{
@@ -84,10 +89,28 @@ router.post("/", (req,res)=>{
         };
         sgMail.send(msg);
         // sms to user using twilio
+        const accountSid = process.env.ACCOUNT_SID;
+        const authToken = process.env.YOUR_AUTHTOKEN;
+        const client = require('twilio')(accountSid, authToken);
         
-        res.render("welcome",{
-            data : formdata
+        client.messages
+        .create({
+            body: `${req.body.firstName} ${req.body.lastName}\nWelcome aboard, your new account has been registered`,
+            from:  process.env.TRIAL_NUMBER,
+            to: phonenum[0].concat(phonenum[1].concat(phonenum[2]))
         })
+        .then(message => {
+            console.log(message.sid);
+            res.render("welcome",{
+                data : formdata
+            })
+        })
+        .catch((err)=>{
+            console.log(`Error ${err}`);
+        })
+
+        // render welcome page
+        
     }
     
     
