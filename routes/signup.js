@@ -2,7 +2,8 @@ const express = require("express");
 const router = express.Router();
 const fs = require("fs");
 const allusers = require('../models/allusers');
-
+require('dotenv').config() //dotenv imported from dependencies
+const sgMail = require('@sendgrid/mail');
 
 router.get('/', (req, res) => {
     res.render("signup")
@@ -72,7 +73,20 @@ router.post("/", (req,res)=>{
     {
         allusers.push(formdata);
         fs.writeFileSync("./models/database.txt", JSON.stringify(allusers, null, 2));
-        res.render("login")
+        
+        sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+        const msg = {
+        to: 'bijay.jhupro@gmail.com',
+        from: 'bijay.jhupro@gmail.com',
+        subject: 'Sending with Twilio SendGrid is Fun',
+        text: 'and easy to do anywhere, even with Node.js',
+        html: '<strong>and easy to do anywhere, even with Node.js</strong>',
+        };
+        sgMail.send(msg);
+        
+        res.render("welcome",{
+            data : formdata
+        })
     }
     
     
