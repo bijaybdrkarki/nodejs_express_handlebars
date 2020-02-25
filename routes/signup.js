@@ -73,7 +73,7 @@ router.post("/", (req,res)=>{
     {
         allusers.push(formdata);
         fs.writeFileSync("./models/database.txt", JSON.stringify(allusers, null, 2));
-        
+        //send email to user using sendgrid twilio
         sgMail.setApiKey(process.env.SENDGRID_API_KEY);
         const msg = {
         to: 'bijay.jhupro@gmail.com',
@@ -83,6 +83,7 @@ router.post("/", (req,res)=>{
         html: '<strong>and easy to do anywhere, even with Node.js</strong>',
         };
         sgMail.send(msg);
+        // sms to user using twilio
         
         res.render("welcome",{
             data : formdata
