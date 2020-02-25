@@ -26,6 +26,11 @@
                 {{#if messages.lastName}}
                    <div class="error"> {{messages.lastName}} </div>
                 {{/if}}
+                <i class="fas fa-mobile-alt icon-signup"></i>
+                <input class="input-field" type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="ex: 123-456-7890" value="{{data.phone}}">
+                {{#if messages.phone}}
+                   <div class="error"> {{messages.phone}} </div>
+                {{/if}}
                 <i class="fas fa-unlock-alt icon-signup"></i>
                 <input class="input-field" type="password" placeholder="Password" name="password">
                 {{#if messages.password}}
