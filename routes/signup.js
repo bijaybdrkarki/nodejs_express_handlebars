@@ -6,7 +6,9 @@ require('dotenv').config() //dotenv imported from dependencies
 const sgMail = require('@sendgrid/mail');
 
 router.get('/', (req, res) => {
-    res.render("signup")
+    res.render("signup",{
+        title: "Signup"
+    })
 })
 router.post("/", (req,res)=>{
     // console.log("test");
@@ -102,6 +104,7 @@ router.post("/", (req,res)=>{
         .then(message => {
             console.log(message.sid);
             res.render("welcome",{
+                title: "Welcome",
                 data : formdata
             })
         })

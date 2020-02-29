@@ -3,7 +3,9 @@ const router = express.Router();
 const allusers = require('../models/allusers');
 
 router.get('/', (req, res) => {
-    res.render("login")
+    res.render("login",{
+        title: "Login"
+    })
 })
 router.post("/", (req,res)=>{
     let errormessg=[];
