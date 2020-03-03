@@ -83,7 +83,7 @@ router.post("/", (req,res)=>{
         //send email to user using sendgrid twilio
         sgMail.setApiKey(process.env.SENDGRID_API_KEY);
         const msg = {
-        to: 'bijay.jhupro@gmail.com',
+        to: formdata.email,
         from: 'bijay.jhupro@gmail.com',
         subject: 'Sending with Twilio SendGrid is Fun',
         text: 'and easy to do anywhere, even with Node.js',
