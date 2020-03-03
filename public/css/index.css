@@ -11,7 +11,7 @@
 .navbar {
     /* padding: 0.5em 0.5em; */
     display: grid;
-    grid-template-columns: 2em  auto  minmax(4.5em, max-content);
+    grid-template-columns: 2em  auto  minmax(2.5em, max-content);
     grid-template-areas:  "drop logo acon"
                             "srch srch srch"
                             "men men men";
@@ -37,6 +37,7 @@
 .account{
     grid-area: acon;
     vertical-align: middle;
+    margin-right: 1em;
 }
 .account button{
     font-size: 2.2em;
@@ -773,7 +774,7 @@ h1{
 @media screen and (min-width: 650px) {
    /* media queries for header */
    .navbar{
-    grid-template-columns: 9em auto 2em minmax(4.5em, max-content);
+    grid-template-columns: 7.5em auto 2em minmax(2.5em, max-content);
     grid-template-areas: "logo men srch acon";
     }
     .drop-menu{
@@ -881,7 +882,7 @@ h1{
         margin: 0 auto;
     }
     .navbar{
-        grid-template-columns: 9em auto 17em minmax(4.5em, max-content);
+        grid-template-columns: 7.5em auto 17em minmax(2.5em, max-content);
         grid-template-areas: "logo men srch acon";
     }
     .search, .searchbar label{
