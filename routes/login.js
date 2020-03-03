@@ -10,6 +10,7 @@ router.get('/', (req, res) => {
 router.post("/", (req,res)=>{
     let errormessg=[];
     let flag = 0;
+    let name ="";
     let formdata={
         email : req.body.email,
         password: req.body.password
@@ -28,6 +29,7 @@ router.post("/", (req,res)=>{
         if (formdata.email == allusers[i].email && formdata.password == allusers[i].password)
         {
             flag = 1;
+            name = allusers[i].fname 
             break;
         }
     }
@@ -46,7 +48,9 @@ router.post("/", (req,res)=>{
     }
     else
     {
-        res.render("index");
+        res.render("index",{
+            name : name
+        });
     }
 
 })
