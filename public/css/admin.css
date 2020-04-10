@@ -8,7 +8,7 @@
 
 .dataBody{
     display: grid;
-    grid-template-columns: 1fr 3fr 3fr 0.5fr 0.4fr 0.9fr;   
+    grid-template-columns: 1fr 200px 3fr 3fr 0.5fr 0.4fr 0.9fr;   
 }
 
 .dataBody{ 
@@ -41,10 +41,10 @@
     margin: 4px 2px;
     cursor: pointer;
 }
-.edit-room{
+.edit-room, .add-room{
     margin: 1em;
 }
-.edit-room h2{
+.edit-room h2, .add-room h2{
     font-size: 1.4em;
     margin-bottom: 1em;
 }
@@ -59,3 +59,9 @@
 .edit-form label, .edit-form input, .edit-form textarea{
     padding: 0.5em;
 }
+.image {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    width: 150px;
+  }
