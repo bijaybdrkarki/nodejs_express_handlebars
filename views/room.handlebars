@@ -1,6 +1,7 @@
 <div>
     <div class="dataBody">
         <h3>Name</h3>
+        <h3>Image</h3>
         <h3>Description</h3>
         <h3>Extra</h3>
         <h3>Price</h3>
@@ -8,6 +9,7 @@
         <h3>Operation</h3>
        {{#each data}}
         <p>{{this.name}}</p>
+        <img src="/img/{{this.roomImg}}" class="image">
         <p>{{this.description}}</p>
         <p>{{this.extra}}</p>
         <p>{{this.price}}</p>
