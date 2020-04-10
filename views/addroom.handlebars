@@ -1,0 +1,22 @@
+<h2>Add Room</h2>
+    
+    <form method="POST" action="/admin/room/addroom">
+
+        <label>Name</label>
+        <input type="text" name="name" id="name"> <br><br>
+
+        <label>Description</label>
+        <textarea id="description" name="description"></textarea><br><br>
+
+        <label>Extra</label>
+        <textarea id="extra" name="extra"></textarea><br><br>
+
+        <label>Price</label>
+        <input type="number" name="price" id="price" step="any"> <br><br>
+
+        <label>Rating</label>
+        <input type="number" min=1 step="any" name="rating" id="price"> <br><br>
+
+        <input type="submit" value="Add Room">
+
+    </form>
