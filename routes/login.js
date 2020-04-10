@@ -49,7 +49,7 @@ router.post("/", (req,res)=>{
     else
     {
         res.render("index",{
-            name : name
+            user_name : name
         });
     }
 
