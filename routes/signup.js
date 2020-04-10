@@ -1,7 +1,8 @@
 const express = require("express"); 
 const router = express.Router();
-const fs = require("fs");
-const allusers = require('../models/allusers');
+
+const path = require("path"); 
+const alluserModel = require('../models/allusers');
 require('dotenv').config() //dotenv imported from dependencies
 const sgMail = require('@sendgrid/mail');
 
@@ -17,7 +18,6 @@ router.post("/", (req,res)=>{
         fname : req.body.firstName,
         lname : req.body.lastName,
         password: req.body.password,
-        confirmPassword : req.body.confirmPassword,
         phone : req.body.phone,
         day : req.body.day,
         month : req.body.month,
@@ -76,46 +76,88 @@ router.post("/", (req,res)=>{
         data : formdata
         })
     }
-    else
-    {
-        allusers.push(formdata);
-        fs.writeFileSync("./models/database.txt", JSON.stringify(allusers, null, 2));
-        //send email to user using sendgrid twilio
-        sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-        const msg = {
-        to: formdata.email,
-        from: 'bijay.jhupro@gmail.com',
-        subject: 'Sending with Twilio SendGrid is Fun',
-        text: 'and easy to do anywhere, even with Node.js',
-        html: '<strong>and easy to do anywhere, even with Node.js</strong>',
-        };
-        sgMail.send(msg);
-        // sms to user using twilio
-        const accountSid = process.env.ACCOUNT_SID;
-        const authToken = process.env.YOUR_AUTHTOKEN;
-        const client = require('twilio')(accountSid, authToken);
-        
-        client.messages
-        .create({
-            body: `${req.body.firstName} ${req.body.lastName}\nWelcome aboard, your new account has been registered`,
-            from:  process.env.TRIAL_NUMBER,
-            to: phonenum[0].concat(phonenum[1].concat(phonenum[2]))
-        })
-        .then(message => {
-            console.log(message.sid);
-            res.render("welcome",{
-                title: "Welcome",
-                data : formdata
-            })
-        })
-        .catch((err)=>{
-            console.log(`Error ${err}`);
-        })
+    else{
+        //check if the email already exists in tha database or not
+        alluserModel.find()
+            .then((users)=>{
+                let flag = 0;
+                for(let i =0; i< users.length;i++)
+                {
+                    if (users[i].email === req.body.email)
+                    {
+                        flag = 1;
+                        break;
+                        
+                    }
+                }
+                if (flag === 1 )
+                {
+                    errors.email = "sorry, email you entered already exists"
+                        res.render("signup",{
+                            messages : errors,
+                            data : formdata
+                        })
+                }
+                else
+                {
+                    const user = new alluserModel(formdata);
+                    user.save()
+                    .then((justSavedUser)=>{
+                
+                        req.files.userImg.name = `${justSavedUser._id}_${req.files.userImg.name}${path.parse(req.files.userImg.name).ext}`;
+                        req.files.userImg.mv(`public/userimg/${req.files.userImg.name}`)
+                        .then(()=>{
+                            
+                            alluserModel.updateOne({_id:justSavedUser._id}, {
+                                userImg: req.files.userImg.name
+                            })
+                            .then(()=>{
+                                sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+                                const msg = {
+                                to: formdata.email,
+                                from: 'bijay.jhupro@gmail.com',
+                                subject: 'Sending with Twilio SendGrid is Fun',
+                                text: 'and easy to do anywhere, even with Node.js',
+                                html: '<strong>and easy to do anywhere, even with Node.js</strong>',
+                                };
+                                sgMail.send(msg);
+                                // sms to user using twilio
+                                const accountSid = process.env.ACCOUNT_SID;
+                                const authToken = process.env.YOUR_AUTHTOKEN;
+                                const client = require('twilio')(accountSid, authToken);
+                                
+                                client.messages
+                                .create({
+                                    body: `${req.body.firstName} ${req.body.lastName}\nWelcome aboard, your new account has been registered`,
+                                    from:  process.env.TRIAL_NUMBER,
+                                    to: phonenum[0].concat(phonenum[1].concat(phonenum[2]))
+                                })
+                                .then(message => {
+                                    console.log(message.sid);
+                                    res.render("welcome",{
+                                        title: "Welcome",
+                                        data : formdata
+                                    })
+                                })
+                                .catch((err)=>{
+                                    console.log(`Error ${err}`);
+                                })
 
-        // render welcome page
-        
-    }
+                            })
+                            .catch( err => console.log(`error occured while adding userImg name to database ${err}`));
+                            
+                        })
+                        .catch( err => console.log(`error occured while saving userImg on server ${err}`));
+                
+                        
+                    })
+                    .catch( err => console.log(`error occured while adding user to database ${err}`));
     
+                }
+               
+            })
+            .catch( err => console.log(`error occured while retrieving user from database ${err}`));
+        }    
     
 })
 
