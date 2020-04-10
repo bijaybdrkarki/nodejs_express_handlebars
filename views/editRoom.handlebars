@@ -1,0 +1,31 @@
+<div class="edit-room">
+    <h2 class="">Edit Room</h2>
+    <form  method="POST" action="/admin/room/update/{{_id}}?method=PUT">
+        <div class="edit-form">
+        <label>Name</label>
+        <input type="text" name="name" id="name" value={{name}}> 
+        </div>
+        <div class="edit-form">
+        <label>Description</label>
+        <textarea id="description" name="description"> {{description}}</textarea>
+        </div>
+        <div class="edit-form">
+        <label>Extra</label>
+        <textarea id="extra" name="extra">{{extra}} </textarea>
+        </div>
+        
+        <div class="edit-form">
+        <label>Price</label>
+        <input class="price-rating" type="number" name="price" step="any" id="price" value={{price}}> 
+        </div>
+        
+        <div class="edit-form">
+        <label>Rating</label>
+        <input class="price-rating" type="number" min=1 step="any" name="rating" id="price" value={{rating}}> 
+        
+        </div>
+
+        <input type="submit" class="linkAsButton" value="Update Room">
+
+    </form>
+</div>
