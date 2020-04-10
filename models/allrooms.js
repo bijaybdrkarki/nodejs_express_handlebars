@@ -29,6 +29,10 @@ const allRoomSchema = new Schema({
         type: Number,
         required: true
     },
+    roomImg:
+    {
+        type: String
+    },
     dateCreated:
     {
         type: Date,
