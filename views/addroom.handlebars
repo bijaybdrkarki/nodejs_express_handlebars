@@ -1,22 +1,38 @@
-<h2>Add Room</h2>
+<div class="add-room" >     
+    <h2>Add Room</h2>
     
-    <form method="POST" action="/admin/room/addroom">
-
+    <form method="POST" action="/admin/room/addroom" enctype="multipart/form-data">
+        <div class="edit-form">
         <label>Name</label>
-        <input type="text" name="name" id="name"> <br><br>
+        <input type="text" name="name" id="name"> 
+        </div>
 
+        <div class="edit-form">
         <label>Description</label>
-        <textarea id="description" name="description"></textarea><br><br>
+        <textarea id="description" name="description"></textarea>
+        </div>
 
+        <div class="edit-form">
         <label>Extra</label>
-        <textarea id="extra" name="extra"></textarea><br><br>
+        <textarea id="extra" name="extra"></textarea>
+        </div>
 
+        <div class="edit-form">
         <label>Price</label>
-        <input type="number" name="price" id="price" step="any"> <br><br>
+        <input class="price-rating" type="number" name="price" id="price" step="any"> 
+        </div>
 
+        <div class="edit-form">
+        <label>Image</label>
+        <input type="file" name="roomImg" id="roomImg"> 
+        </div>
+
+        <div class="edit-form">
         <label>Rating</label>
-        <input type="number" min=1 step="any" name="rating" id="price"> <br><br>
+        <input class="price-rating" type="number" min=1 step="any" name="rating" id="price"> 
+        </div>
 
-        <input type="submit" value="Add Room">
+        <input type="submit" class="linkAsButton" value="Add Room">
 
     </form>
+</div>
