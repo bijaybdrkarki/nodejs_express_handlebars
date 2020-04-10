@@ -9,7 +9,7 @@
               <span class="gogGreen">l</span>
               <span class="gogRed">e</span></a></p>
         <p class="orBetween"><span>or</span></p>
-        <form class="input-form" method="POST" action="/signup">
+        <form class="input-form" method="POST" action="/signup" enctype="multipart/form-data">
             <div class="input-icons">      
                 <i class="fa fa-envelope icon-signup"> </i> 
                 <input class="input-field" type="email" placeholder="Email address" name="email" value="{{data.email}}">
@@ -48,6 +48,10 @@
                    <div class="error"> {{messages.match}} </div>
                 {{/if}}
             </div> 
+            <div class="userProfile">
+                <p class="profileImg"> choose profile pic</p>
+                <input type="file" name="userImg">
+            </div>
             <label class="birthday">Birthday</label>
             <p class="info">To sign up, you need to be at least 18. Other people won’t see your birthday.</p>
               
