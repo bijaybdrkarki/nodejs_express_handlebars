@@ -1,8 +1,11 @@
 //imports the express package that was installed within your application
-const express = require("express"); 
+const express = require("express");
+
 
 // imports the handlebar package
 const exphbs  = require('express-handlebars');
+var helpers = require('handlebars-helpers')();
+
 
 const mongoose = require('mongoose');
 const fileupload = require('express-fileupload');
@@ -22,7 +25,10 @@ app.use(bodyParser.urlencoded({ extended: false }))
 
 
 //register handlebars view engine
-app.engine('handlebars', exphbs());
+
+app.engine('handlebars', exphbs({
+    helpers : helpers
+}));
 app.set('view engine', 'handlebars');
 
 
