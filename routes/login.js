@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const alluserModel = require('../models/allusers');
 const bcrypt = require('bcryptjs');
+const userOrAdmin = require('../middleware/userOrAdmin');
 
 router.get('/', (req, res) => {
     res.render("login",{
@@ -33,7 +34,7 @@ router.post("/", (req,res)=>{
                 {
                     //both email and password matched so create session
                     req.session.userInfo = user
-                    res.redirect("/")
+                    userOrAdmin(req,res);
                 }
                 else
                 {
