@@ -1,6 +1,7 @@
 const express = require("express"); 
 const router = express.Router();
-const allusers = require('../models/allusers');
+const alluserModel = require('../models/allusers');
+const bcrypt = require('bcryptjs');
 
 router.get('/', (req, res) => {
     res.render("login",{
@@ -8,51 +9,45 @@ router.get('/', (req, res) => {
     })
 })
 router.post("/", (req,res)=>{
-    let errormessg=[];
-    let flag = 0;
-    let name ="";
     let formdata={
         email : req.body.email,
         password: req.body.password
     }; 
-    const errors={};
-    if(formdata.email=="")
-    {
-    errors.email = "Sorry, you must enter email address";
-    }
-    if(formdata.password=="")
-    {
-    errors.password="Sorry, you must enter a password";
-    }
-    for (let i= 0 ; i<allusers.length; i++)
-    {
-        if (formdata.email == allusers[i].email && formdata.password == allusers[i].password)
-        {
-            flag = 1;
-            name = allusers[i].fname 
-            break;
-        }
-    }
-    if (flag == 0)
-    {
-        errors.match = "email and password not found"
-    }
-    errormessg.push(errors);
     
-    if(Object.keys(errors).length > 0)
-    {
-        res.render("login",{
-        messages : errors,
-        data : formdata
-        })
-    }
-    else
-    {
-        res.render("index",{
-            user_name : name
-        });
-    }
-
+    alluserModel.findOne({email:req.body.email})
+    .then(user =>{
+       let errors = [];
+        if (user == null)
+        {
+            errors.push("Sorry either email/password is not valid");
+            res.render('login',{
+                err : errors,
+                data : formdata
+            })
+        }
+        else
+        { 
+            bcrypt.compare(req.body.password, user.password)
+            .then(isMatched =>{
+                if (isMatched)
+                {
+                    //both email and password matched so create session
+                    req.session.userInfo = user
+                    res.redirect("/")
+                }
+                else
+                {
+                    errors.push("Sorry either email/password is not valid");
+                    res.render('login',{
+                        err : errors,
+                        data : formdata
+                    })
+                }
+            })
+            .catch(err => console.log(`error occured during password encrypt ${err}`));
+        }
+    })
+    .catch(err => console.log(`error occured while finding user by email ${err}`));
 })
 
 
