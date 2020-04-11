@@ -5,22 +5,16 @@ const express = require("express");
 const exphbs  = require('express-handlebars');
 
 const mongoose = require('mongoose');
-const  fileupload = require('express-fileupload');
+const fileupload = require('express-fileupload');
+const session =require("express-session");
 
 const bodyParser = require('body-parser');
 const app = express(); // create express object ---> app
 const PORT = process.env.PORT || 3000; // heroku env port number || localhost port
 
-//import routes from routes folder
-const index = require('./routes/index');
-const signup_login = require('./routes/signup-login')
-const signup = require('./routes/signup');
-const login = require('./routes/login');
-const rooms = require('./routes/rooms');
-const adventures = require('./routes/adventures');
-const admin = require('./routes/admin');
 
-const fakedb=[];
+
+
 //This allows express to make my static content avialable from the public
 app.use(express.static('public'))
 
@@ -46,6 +40,42 @@ app.use((req,res,next)=>{
 })
 
 app.use(fileupload());
+
+app.use(session({
+    secret: `${process.env.SESSION_SECRET}`,
+    resave: false,
+    saveUninitialized: true,
+    
+}))
+
+app.use((req,res,next)=>{
+
+    res.locals.user = req.session.userInfo;
+    next();
+})
+
+
+//import routes from routes folder
+const index = require('./routes/index');
+const signup_login_logout = require('./routes/signup-login')
+const signup = require('./routes/signup');
+const login = require('./routes/login');
+const logout = require('./routes/logout');
+const rooms = require('./routes/rooms');
+const adventures = require('./routes/adventures');
+const admin = require('./routes/admin');
+
+// modular routes
+app.use('/', index);
+app.use('/admin', admin);
+app.use('/signup', signup);
+app.use('/login', login);
+app.use('/logout',logout);
+app.use('/signup-login-logout', signup_login_logout);
+app.use('/rooms', rooms);
+app.use('/adventures', adventures);
+
+
 mongoose.connect(process.env.MONGO_DB_STRING, {useNewUrlParser: true, useUnifiedTopology: true})
 .then(()=>{
   console.log(`connected to database`);
@@ -55,12 +85,3 @@ mongoose.connect(process.env.MONGO_DB_STRING, {useNewUrlParser: true, useUnified
 app.listen(PORT, () => {
     console.log(`Web Server Started`); 
 })
-
-// modular routes
-app.use('/', index);
-app.use('/admin', admin);
-app.use('/signup', signup);
-app.use('/login', login);
-app.use('/signup-or-login', signup_login);
-app.use('/rooms', rooms);
-app.use('/adventures', adventures);
