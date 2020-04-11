@@ -78,19 +78,9 @@ router.post("/", (req,res)=>{
     }
     else{
         //check if the email already exists in tha database or not
-        alluserModel.find()
-            .then((users)=>{
-                let flag = 0;
-                for(let i =0; i< users.length;i++)
-                {
-                    if (users[i].email === req.body.email)
-                    {
-                        flag = 1;
-                        break;
-                        
-                    }
-                }
-                if (flag === 1 )
+        alluserModel.findOne({email:req.body.email})
+            .then((user)=>{
+                if (user != null)
                 {
                     errors.email = "sorry, email you entered already exists"
                         res.render("signup",{
