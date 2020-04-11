@@ -49,6 +49,10 @@
     display: inline; 
     color: red;   
 }
+.account a{
+    color: red;   
+    text-decoration: none;   
+}
 .searchbar{
     grid-area: srch;
     padding-top: 0.5em;
@@ -489,6 +493,46 @@ h1{
 .signup-btn{
     background-color: #0a192b;
     color: white;
+}
+.login-icon
+{ 
+    background-color: rgb(134, 132, 131);
+    padding: 0.25em;
+    border-radius: 4.5em;
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+}
+.logout{
+    display: inline-block;
+    text-align: center;
+    padding: 0 1em;
+    width: 100%;
+}
+.user-img{
+    width: 100px;
+    height: 100px;
+    margin-top: 1.22em;
+    /* margin-left: 0.3em; */
+}
+.user-name{
+    margin: 2em 0;
+}
+.logout-heading
+{
+    margin: 0.5em 0;
+}
+.logoutlink {
+    background-color: #1c27c9;
+    border: none;
+    color: white;
+    padding: 20px 34px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 4px 2px;
+    cursor: pointer;
 }
 
 
