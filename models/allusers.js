@@ -48,6 +48,11 @@ const alluserSchema = new Schema({
     {
         type: String
     },
+    type:
+    {
+        type: String,
+        default: "user"
+    },
     dateCreated:
     {
         type: Date,
