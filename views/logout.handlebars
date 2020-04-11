@@ -1,6 +1,9 @@
 <div class="center">
-    <h3> Dear {{user.fname}}{{user.lname}}</h3>
-    <a href="/logout">logout</a>
-
-
+    <div class="logout">
+        <div class="login-icon"> <img src="userImg/{{user.userImg}}" class="user-img"></div>
+        <h3 class="user-name"> Dear {{user.fname}} {{user.lname}}</h3>
+        <h1 class="logout-heading">You are Logged in !</h1>
+        
+        <a  class="logoutlink" href="/logout">logout</a>
+    </div>
 </div>
