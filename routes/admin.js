@@ -3,13 +3,15 @@ const router = express.Router();
 const allRoomModel = require('../models/allrooms');
 const path = require('path');
 const fs = require('fs');
+const isAuthenticate = require('../middleware/authenticate');
+const isAdmin= require('../middleware/isAdmin');
 
-router.get('/',(req,res)=>{
+router.get('/', isAuthenticate, isAdmin, (req,res)=>{
     res.render("admin",{
         title: "Admin-page"
     })
 })
-router.get('/room', (req, res) => {
+router.get('/room', isAuthenticate, isAdmin, (req, res) => {
 
     allRoomModel.find()
     .then((rooms)=>{
@@ -33,7 +35,7 @@ router.get('/room', (req, res) => {
     .catch( err => console.log(`error occured while retrieving room to database ${err}`));
     
 })
-router.get('/room/addroom', (req, res) => {
+router.get('/room/addroom',isAuthenticate, isAdmin,  (req, res) => {
     
     res.render("addroom",{
         title: "Admin-addroom"
@@ -41,7 +43,7 @@ router.get('/room/addroom', (req, res) => {
 })
 
 
-router.get('/room/edit/:id', (req, res) => {
+router.get('/room/edit/:id', isAuthenticate, isAdmin, (req, res) => {
     
     allRoomModel.findById(req.params.id)
     .then((room)=>{
@@ -61,7 +63,7 @@ router.get('/room/edit/:id', (req, res) => {
     .catch( err => console.log(`error occured while retrieving a room to database ${err}`));
     
 })
-router.put('/room/update/:id',(req,res)=>{
+router.put('/room/update/:id',isAuthenticate, isAdmin, (req,res)=>{
     if (req.files)
     {   
         allRoomModel.findById(req.params.id)
@@ -110,7 +112,7 @@ router.put('/room/update/:id',(req,res)=>{
     .catch( err => console.log(`error occured while updating a room in database ${err}`));
 
 })
-router.delete('/room/delete/:id',(req,res)=>{
+router.delete('/room/delete/:id', isAuthenticate, isAdmin, (req,res)=>{
     allRoomModel.deleteOne({_id:req.params.id})
     .then(()=>{
         res.redirect('/admin/room')
@@ -118,7 +120,7 @@ router.delete('/room/delete/:id',(req,res)=>{
     .catch( err => console.log(`error occured while deleting a room in database ${err}`));
 
 })
-router.post('/room/addroom', (req, res) => {
+router.post('/room/addroom', isAuthenticate, isAdmin, (req, res) => {
     
     const newRoom = 
     {
@@ -154,7 +156,7 @@ router.post('/room/addroom', (req, res) => {
     
     
 })
-router.get('/Adventuresroom', (req, res) => {
+router.get('/Adventuresroom', isAuthenticate, isAdmin, (req, res) => {
     res.render("addAdventureroom",{
         title: "Admin-addAdventureroom"
     })
