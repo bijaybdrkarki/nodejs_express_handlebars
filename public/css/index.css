@@ -55,17 +55,17 @@
 }
 .searchbar{
     grid-area: srch;
-    padding-top: 0.5em;
-    display: none;
-    color: white;    
+    padding: 1em 0;
+    color: black;
+    text-align: center;    
 }
 .searchbar label{
     margin-left: 1em;
 }
 .searchbar button{
     border: none;
-    background-color: #0a192b;
-    color: white;
+    background-color: transparent;
+    color: black;
 }
 
 .search{
@@ -565,6 +565,9 @@ h1{
 .noData{
     min-height : 30em;
 }
+.noData h1{
+    display: inline-block;
+}
 .name-price data ins{
     text-decoration: none;
 }
@@ -837,8 +840,8 @@ h1{
 @media screen and (min-width: 650px) {
    /* media queries for header */
    .navbar{
-    grid-template-columns: 7.5em auto 2em minmax(2.5em, max-content);
-    grid-template-areas: "logo men srch acon";
+    grid-template-columns: 7.5em auto minmax(2.5em, max-content);
+    grid-template-areas: "logo men acon";
     }
     .drop-menu{
         display: none;
@@ -869,18 +872,14 @@ h1{
         display: flex;
         justify-content: space-between;
     }
-    .searchbar{
-        display: block;
-        padding-top: 0.5em;
-        position: relative;  
-    }
-    .srchicon
+   
+    /* .srchicon
     {
         display: block;
         grid-area: srch;
         color:white;
         text-align: center;
-    }
+    } */
     .notVisible{
         display: none;
     }
@@ -953,8 +952,8 @@ h1{
         margin: 0 auto;
     }
     .navbar{
-        grid-template-columns: 7.5em auto 17em minmax(2.5em, max-content);
-        grid-template-areas: "logo men srch acon";
+        grid-template-columns: 7.5em auto minmax(2.5em, max-content);
+        grid-template-areas: "logo men acon";
     }
     .search, .searchbar label{
         display: inline-block;  
