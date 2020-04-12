@@ -1,3 +1,9 @@
+<form class="searchbar" id="search" method="POST" action="/rooms" > 
+    <label>Search</label>
+    <input type="search" name="find" id="find" class="search" placeholder="search by location">
+    <button type="submit"><span class="material-icons srchicon" id="srchicon">search</span></button>
+</form>  
+{{#if rooms}}
 <div class="rooms" id="rooms">
     {{#each rooms}}
         <article class="room">
@@ -21,3 +27,9 @@
 
     {{/each}}
 </div>
+{{else}}
+<div class="noData">
+    <h1>No data to display please search again</h1>
+    <a href="/rooms">see all</a>
+</div>
+{{/if}}
