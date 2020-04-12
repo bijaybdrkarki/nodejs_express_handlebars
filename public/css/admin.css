@@ -8,7 +8,7 @@
 
 .dataBody{
     display: grid;
-    grid-template-columns: 1fr 200px 3fr 3fr 0.5fr 0.4fr 0.9fr;   
+    grid-template-columns: 1fr 150px 3fr 2.5fr 100px 0.5fr 0.4fr 50px 1.1fr;   
 }
 
 .dataBody{ 
