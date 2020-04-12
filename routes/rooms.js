@@ -4,8 +4,8 @@ const router = express.Router();
 
 router.get('/', (req, res) => {
     allRoomModel.find()
-    .then((rooms)=>{
-        const filteredRoom = rooms.map((room)=>{
+    .then((allrooms)=>{
+        const filteredRoom = allrooms.map((room)=>{
             return {
                 id: room._id,
                 name: room.name,
@@ -25,6 +25,29 @@ router.get('/', (req, res) => {
     .catch( err => console.log(`error occured while retrieving room to database ${err}`));
     
     
+})
+router.post('/', (req, res) => {
+     
+    allRoomModel.find({location: req.body.find})
+    .then((rooms)=>{
+        const filteredRoom = rooms.map((room)=>{
+            return {
+                id: room._id,
+                name: room.name,
+                description: room.description,
+                extra: room.extra,
+                price: room.price,
+                rating: room.rating,
+                roomImg: room.roomImg,
+            }
+        })
+        res.render("rooms",{
+            title: "search result",
+            rooms : filteredRoom
+        })
+    })
+    .catch( err => console.log(`error occured while retrieving room to database ${err}`));
+        
 })
 
 
