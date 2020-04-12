@@ -43,7 +43,7 @@ router.post('/', (req, res) => {
         })
         res.render("rooms",{
             title: "search result",
-            rooms : filteredRoom
+            searchedRooms : filteredRoom
         })
     })
     .catch( err => console.log(`error occured while retrieving room to database ${err}`));
