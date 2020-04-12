@@ -30,7 +30,21 @@
         <div class="edit-form">
         <label>Rating</label>
         <input class="price-rating" type="number" min=1 step="any" name="rating" id="price" value={{rating}}> 
-        
+        </div>
+
+        <div class="edit-form">
+        <label>Location</label>
+        <input class="price-rating" type="text" name="location" id="location" value={{location}}> 
+        </div>
+
+        <div class="edit-form">
+        <label>Featured</label>
+        <div>
+            <input type="radio" id="yes"  name="feature" {{#eq featuredRoom compare=true}} checked {{/eq}} value="yes">
+            <label for="yes">Yes</label>
+            <input type="radio" id="no" name="feature" {{#eq featuredRoom compare=false}} checked {{/eq}} value="no">
+            <label for="no">No</label>
+        </div>
         </div>
 
         <input type="submit" class="linkAsButton" value="Update Room">
