@@ -70,6 +70,7 @@ const logout = require('./routes/logout');
 const rooms = require('./routes/rooms');
 const adventures = require('./routes/adventures');
 const admin = require('./routes/admin');
+const search = require('./routes/search');
 
 // modular routes
 app.use('/', index);
@@ -79,6 +80,7 @@ app.use('/login', login);
 app.use('/logout',logout);
 app.use('/signup-login-logout', signup_login_logout);
 app.use('/rooms', rooms);
+app.use('/search', search);
 app.use('/adventures', adventures);
 
 
