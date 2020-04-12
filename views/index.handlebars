@@ -79,3 +79,29 @@
         </a>
     </div>
 </div>
+
+{{!-- featured room section --}}
+<h1>Featured Rooms</h1>
+<div class="rooms" id="rooms">
+    {{#each featured}}
+        <article class="room">
+            <header>
+                <img src="/img/{{this.roomImg}}" alt="room img">
+            </header>
+            <div class="name-price">
+                <h3>{{this.name}}</h3>
+                <data value="{{this.price}}"><ins>${{this.price}}/night</ins></data>
+            </div>
+            <div class="see-more">
+                <p>{{this.description}}</p>
+                <a href="#" class="extra-info">See more</a><br>
+                <span class="invisible">{{this.extra}}</span>
+            </div>
+            <dl class="rating-fav">
+            <div><dt><span class="material-icons">star</span> <h2>{{this.rating}}</h2></dt></div>
+            <div class="align-right"><button type="button" class="fav but"><span class="material-icons fav-color">favorite_border</span></button></div>
+            </dl>
+        </article>
+
+    {{/each}}
+</div>
