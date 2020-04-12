@@ -1,0 +1,33 @@
+<div>
+    <div class="dataBody">
+        <h3>Name</h3>
+        <h3>Image</h3>
+        <h3>Description</h3>
+        <h3>Extra</h3>
+        <h3>Location</h3>
+        <h3>Price</h3>
+        <h3>Rating</h3>
+        <h3>ftd</h3>
+        <h3>Operation</h3>
+       {{#each data}}
+        <p>{{this.name}}</p>
+        <img src="/img/{{this.roomImg}}" class="image">
+        <p>{{this.description}}</p>
+        <p>{{this.extra}}</p>
+        <p>{{this.location}}</p>
+        <p>{{this.price}}</p>
+        <p>{{this.rating}}</p>
+        <p>{{this.featuredRoom}}</p>
+        <div>
+        <a href="/admin/room/edit/{{this.id}}" class="edit-button">Edit</a>
+        <a href="/admin/room/delete/{{this.id}}?method=DELETE" class="delete-button">Delete</a>
+        </div>
+        {{else}}
+        <p>No data to display</p>
+        {{/each}}
+    </div>
+    <div class="admin-options">
+    <a href="/admin/room/addroom" class="linkAsButton"> Add Room </a>
+    <a href="/admin" class="linkAsButton"> Done </a>
+    </div>
+</div>
