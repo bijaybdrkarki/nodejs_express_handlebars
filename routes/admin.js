@@ -29,7 +29,7 @@ router.get('/room', isAuthenticate, isAdmin, (req, res) => {
             }
         })
         
-        res.render("room",{
+        res.render("adminAllroom",{
             title: "Admin-allroom",
             data: filteredRoom
         })
