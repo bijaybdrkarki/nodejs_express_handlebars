@@ -241,7 +241,7 @@ window.addEventListener("load", ()=> { /* things to be done when page is loaded 
         let plusButton = document.querySelectorAll(".plusbutton");
         plusButton.forEach(item => item.addEventListener("click", plusbtnclick));
     }
-    if(document.location.pathname == "/rooms")
+    if(document.location.pathname == "/rooms" || document.location.pathname == "/")
     {
         let seeMore = document.querySelectorAll(".extra-info");
         let favBtn = document.querySelectorAll(".fav-color");
