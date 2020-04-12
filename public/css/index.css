@@ -565,7 +565,11 @@ h1{
 .noData{
     min-height : 30em;
 }
-.noData h1{
+.searchedData h1, .noData h1{
+    display: inline-block;
+}
+.searchedData a, .noData a{
+    padding: 0 1em;
     display: inline-block;
 }
 .name-price data ins{
