@@ -33,6 +33,16 @@ const allRoomSchema = new Schema({
     {
         type: String
     },
+    location:
+    {
+        type: String,
+        required: true
+    },
+    featuredRoom:
+    {
+        type: Boolean,
+        required: true
+    },
     dateCreated:
     {
         type: Date,
