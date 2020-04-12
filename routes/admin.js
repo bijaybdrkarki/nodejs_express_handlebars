@@ -23,6 +23,8 @@ router.get('/room', isAuthenticate, isAdmin, (req, res) => {
                 extra: room.extra,
                 price: room.price,
                 rating: room.rating,
+                location: room.location,
+                featuredRoom: room.featuredRoom,
                 roomImg: room.roomImg,
             }
         })
@@ -48,7 +50,7 @@ router.get('/room/edit/:id', isAuthenticate, isAdmin, (req, res) => {
     allRoomModel.findById(req.params.id)
     .then((room)=>{
         
-        const {_id,name,description, extra, price, roomImg, rating} = room;
+        const {_id,name,description, extra, price, roomImg,location, featuredRoom, rating} = room;
         res.render("editRoom",{
             title: "Admin-editroom",
             _id,
@@ -57,6 +59,8 @@ router.get('/room/edit/:id', isAuthenticate, isAdmin, (req, res) => {
             extra, 
             price,
             roomImg, 
+            location,
+            featuredRoom,
             rating
         })
     })
@@ -90,18 +94,22 @@ router.put('/room/update/:id',isAuthenticate, isAdmin, (req,res)=>{
             price: req.body.price,
             roomImg: req.files.roomImg.name,
             rating: req.body.rating,
+            location: req.body.location,
+            featuredRoom: req.body.feature
         }
     
     }  
     else
     {
-        console.log('Empty file');
+        // console.log('Empty file');
         var updatedRoom = {
             name: req.body.name,
             description: req.body.description,
             extra: req.body.extra,
             price: req.body.price,
             rating: req.body.rating,
+            location: req.body.location,
+            featuredRoom: req.body.feature
         }
     } 
     
@@ -128,7 +136,9 @@ router.post('/room/addroom', isAuthenticate, isAdmin, (req, res) => {
         description: req.body.description,
         extra: req.body.extra,
         price: req.body.price,
-        rating: req.body.rating,  
+        rating: req.body.rating,
+        location: req.body.location,
+        featuredRoom : req.body.feature  
     }
     
     const room = new allRoomModel(newRoom);
